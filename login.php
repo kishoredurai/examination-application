@@ -33,7 +33,7 @@ include('header.php');
             ?>   
             </span>
             <div class="card border border-success">
-              <div class="card-header" style="font-family:comic sans MS;color:blue;font-size:larger;"><center>User Login</center></div>
+              <div class="card-header" style="font-family:comic sans MS;color:blue;font-size:larger;"><center>Student Login</center></div>
               <div class="card-body">
                 <form method="post" id="user_login_form">
                   <div class="form-group">

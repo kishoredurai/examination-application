@@ -17,7 +17,7 @@ class Examination
 	var $connect;
 	var $home_page;
 	var $query;
-	var $data;
+	var $data;	
 	var $statement;
 	var $filedata;
 
@@ -92,13 +92,13 @@ class Examination
 			$mail->isSMTP();                                            // Set mailer to use SMTP
 			$mail->Host       = 'smtp.gmail.com;';  // Specify main and backup SMTP servers
 			$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-			$mail->Username   = 'ssig432@gmail.com';                     // SMTP username
-			$mail->Password   = 'Ssig@1234';                               // SMTP password
+			$mail->Username   = 'kishoredurai7@gmail.com';                     // SMTP username
+			$mail->Password   = 'kishore@2709';                               // SMTP password
 			$mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
 			$mail->Port       = 587;                                    // TCP port to connect to
 		
 			//Recipients
-			$mail->setFrom('ssig432@gmail.com', 'SSIG noreply');
+			$mail->setFrom('kishoredurai7@gmail.com', 'Kishore D');
 			$mail->addAddress($receiver_email);
 		
 			// $file_name = $_FILES["file"]["name"];
