@@ -1,0 +1,29 @@
+.btn {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 6px 20px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .success {
+  background-color: #2eb82e;
+    border-color: #4CAF50;
+    color: white;
+  }
+  
+  .success:hover {
+    background-color: white;
+    color: green;
+  }
+  
+  .blue {
+   background-color: #0073e6;
+    border-color:#0073e6;
+    color: white;
+  }
+  
+  .blue:hover {
+    background-color: white;
+    color: #0073e6;
+  }

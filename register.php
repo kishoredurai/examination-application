@@ -11,12 +11,23 @@ $exam->user_session_public();
 include('header.php');
 
 ?>
+<hr>
 
-	<div class="containter">
-		<div class="d-flex justify-content-center">
-			<br /><br />
-			<div class="card" style="margin-top:50px;margin-bottom: 100px;">
-        		<div class="card-header"><h4>User Registration</h4></div>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+<link href="style/button.css" rel="stylesheet" type="text/css">
+
+	<div class="containter" >
+  <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6" >
+
+
+			<div class="card " style="margin-top:10px;margin-bottom: 100px;border-color:blue;">
+        		<div class="card-header border border-succes"><h4>User Registration</h4></div>
         		<div class="card-body">
         			   <span id="message"></span>
                  <!-- <form  role="form" name="insertrecord" method="post" enctype="multipart/form-data"> -->
@@ -27,6 +38,7 @@ include('header.php');
                   </div>
                   <div class="form-group">
                     <label>Enter Password</label>
+                      
                     <input type="password" name="user_password" id="user_password" class="form-control" />
                   </div>
                   <div class="form-group">
@@ -38,11 +50,10 @@ include('header.php');
                     <input type="text" name="user_name" id="user_name" class="form-control" /> 
                   </div>
                   <div class="form-group">
-                    <label>Select Gender</label>
-                    <select name="user_gender" id="user_gender" class="form-control">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                  </select> 
+                    <label>Select Gender : </label><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <label class="radio-inline"><input type="radio"  checked="checked" name="user_gender" id="user_gender" value="Male"  style="margin-bottom: 10px">Male</label>
+                    <label class="radio-inline"><input type="radio"  name="user_gender" id="user_gender" value="Female"  style="margin-bottom: 10px">Female </label>
+                    
                   </div>
                   <div class="form-group">
                     <label>Enter Address</label>
@@ -52,26 +63,24 @@ include('header.php');
                     <label>Enter Mobile Number</label>
                     <input type="text" name="user_mobile_no" id="user_mobile_no" class="form-control" /> 
                   </div>
-                  <div class="form-group">
+                  <div class="form-group ">
                     <label>Select Profile Image</label>
-                    <input type="file" accept="image/*" name="user_image" id="user_image" />
+                    <input type="file" accept="image/*"  name="user_image" id="user_image" />
                   </div>
                   <br />
                   <div class="form-group" align="center">
                     <input type="hidden" name='page' value='register' />
                     <input type="hidden" name="action" value="register" />
-                    <input type="submit" name="user_register" id="user_register" class="btn btn-info" value="Register" />
+                    <input type="submit" name="user_register" id="user_register" class="btn blue" value="Register" />
+                    <a href="login.php" class="btn success">Login</a>
                   </div>
                 </form>
-          			<div align="center">
-          				<a href="login.php">Login</a>
-          			</div>
         		</div>
-      		</div>
+      		</div></div>
       		<br /><br />
       		<br /><br />
 		</div>
-	</div>
+	</div></div>
 
 </body>
 

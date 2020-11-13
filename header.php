@@ -16,6 +16,7 @@
   	<link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/TimeCircles.css" />
     <script src="style/TimeCircles.js"></script>
+    <link href="style/button.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="jumbotron text-center" style="margin-bottom:0; padding: 1rem 1rem;background-color:white;">
