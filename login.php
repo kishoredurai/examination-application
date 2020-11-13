@@ -15,6 +15,7 @@ include('header.php');
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 <link href="style/button.css" rel="stylesheet" type="text/css">
+<hr>
   <div class="container">
 
       <div class="row">
