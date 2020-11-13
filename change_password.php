@@ -14,9 +14,10 @@ include('header.php');
 
 	<div class="containter">
 		<div class="d-flex justify-content-center">
-			<br /><br />
-			
-			<div class="card" style="margin-top:50px;margin-bottom: 100px;">
+			<br><br>
+			<div class="row">
+		
+			<div class="card" style="margin-top:50px;margin-bottom: 500px;">
         		<div class="card-header"><h4>Change Password</h4></div>
         		<div class="card-body">
 	        		<form method="post"	id="change_password_form">
@@ -41,7 +42,7 @@ include('header.php');
       		<br /><br />
 		</div>
 	</div>
-
+		</div>
 </body>
 
 </html>

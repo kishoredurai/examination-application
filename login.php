@@ -32,8 +32,8 @@ include('header.php');
             }
             ?>   
             </span>
-            <div class="card">
-              <div class="card-header">User Login</div>
+            <div class="card border border-success">
+              <div class="card-header" style="font-family:comic sans MS;color:blue;font-size:larger;"><center>User Login</center></div>
               <div class="card-body">
                 <form method="post" id="user_login_form">
                   <div class="form-group">
@@ -44,15 +44,17 @@ include('header.php');
                     <label>Enter Password</label>
                     <input type="password" name="user_password" id="user_password" class="form-control" />
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" align="center">
+                    <br>
                     <input type="hidden" name="page" value="login" />
                     <input type="hidden" name="action" value="login" />
-                    <input type="submit" name="user_login" id="user_login" class="btn btn-info" value="Login" />
+                    <input type="submit" name="user_login" id="user_login" class="btn success" value=" Login " />&nbsp;
+                    <a class="btn blue" href="register.php">Register</a>
                   </div>
                 </form>
-                <div align="center">
-                  <a href="register.php">Register</a>
-                </div>
+               
+                  
+                
               </div>
             </div>
         </div>
@@ -61,7 +63,37 @@ include('header.php');
         </div>
       </div>
   </div>
+<style>
+.btn {
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 6px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
 
+.success {
+background-color: #2eb82e;
+  border-color: #4CAF50;
+  color: white;
+}
+
+.success:hover {
+  background-color: white;
+  color: green;
+}
+
+.blue {
+ background-color: #0073e6;
+  border-color:#0073e6;
+  color: white;
+}
+
+.blue:hover {
+  background-color: white;
+  color: #0073e6;
+}
+  </style>
 </body>
 </html>
 

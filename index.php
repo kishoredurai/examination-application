@@ -18,7 +18,7 @@ include('header.php');
 		<br />
 		<br />
 		<?php
-		if(isset($_SESSION["user_id"]))
+	if(isset($_SESSION["user_id"]))
 		{
 
 		?>
@@ -29,7 +29,7 @@ include('header.php');
 					<option value="">Select Exam</option>
 					<?php
 
-					echo $exam->Fill_exam_list();
+				 echo $exam->Fill_exam_list();
 
 					?>
 				</select>
@@ -88,8 +88,8 @@ include('header.php');
 		});
 		</script>
 		<?php
-		}
-		else
+		 }
+	else
 		{
 		?>
 		<div align="center">
