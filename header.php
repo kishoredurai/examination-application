@@ -45,7 +45,7 @@
           <a class="nav-link" href="change_password.php">Change Password</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
+       <center>   <a class="nav-link" href="logout.php">Logout</a></ce
         </li>    
       </ul>
     </div>  

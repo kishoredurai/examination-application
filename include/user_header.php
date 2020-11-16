@@ -28,38 +28,19 @@
   if(isset($_SESSION['user_id']))
   {
   ?>
-  <nav class="navbar fixed-top navbar-expand-sm navbar-light" style="background-color: #fcf0ff;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="index.php">
-    <img src="https://www.bitsathy.ac.in/assets/images/headlogo.svg" width="200" height="40" alt="">
+    <img src="https://www.bitsathy.ac.in/assets/images/headlogo.svg" width="180" height="40" alt="">
   </a>
-
-    <!-- <a class="navbar-brand" href="index.php"><img src="https://www.bitsathy.ac.in/assets/images/headlogo.svg" class="img-fluid" height="50"  width="200" alt="Online Examination System in PHP"></a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-    <div class="topnav">
-    <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="enroll_exam.php">Enroll Exam</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profile.php">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="change_password.php">Change Password</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
-        </li>    
-      </ul>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
   
-</div>
-    </ul>
-    <!-- <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="enroll_exam.php">Enroll Exam</a>
+    <ul class="navbar-nav mr-auto" style="font-size:18px;">
+     
+    <li class="nav-item">
+          <a class="nav-link" href="enroll_exam.php" >Enroll Exam</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="profile.php">Profile</a>
@@ -68,30 +49,52 @@
           <a class="nav-link" href="change_password.php">Change Password</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
-        </li>    
-      </ul> -->
+        <a class="nav-link" href="logout.php">Logout</a>
+        </li>  
+    </ul>
 
-      <!-- <a class="nav-link" href="#home">Enroll Exam</a>
-  <a class="nav-item" href="#news">Profile</a>
-  <a href="#contact">Change Password</a>
-  <a class="navbar-right" href="#contact">Logout</a> -->
-    </div>  
-  </nav>
+    <?php
+  if(isset($_SESSION['user_id']))
+  {
+
+    
+$exam->query = "
+SELECT * FROM user_table 
+WHERE user_id = '".$_SESSION['user_id']."'
+";
+
+$result = $exam->query_result();
+foreach($result as $row)
+  ?>
+   
+
+    <form class="form-inline my-2 my-lg-0">
+    <div class="dropdown"> 
+      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><img class="rounded-circle" width="30" height="30" alt="100x100" src="upload/<?php echo $row["user_image"]; ?>"
+          data-holder-rendered="true">&nbsp;<?php echo $row["user_name"]; ?>
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+  </ul>
+</div>
+    </form>
+  </div>
+</nav>
 <style>
  
  .topnav {
   overflow: hidden;
+  font-size: 10px;
+  float:left;
+  color: blue; 
 }
 
 .topnav a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 10px 10px;
+  
   text-decoration: none;
-  font-size: 18px;
+
   border-bottom: 3px solid transparent;
 }
 
@@ -99,11 +102,8 @@
   border-bottom: 3px solid red;
 }
 
-.topnav a.active {
-  border-bottom: 3px solid red;
-}
 </style>
   <div class="container-fluid">
   <?php
-  }
+  }}
   ?>
