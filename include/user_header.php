@@ -42,15 +42,7 @@
     <li class="nav-item">
           <a class="nav-link" href="enroll_exam.php" >Enroll Exam</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profile.php">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="change_password.php">Change Password</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="logout.php">Logout</a>
-        </li>  
+
     </ul>
 
     <?php
@@ -69,14 +61,16 @@ foreach($result as $row)
    
 
     <form class="form-inline my-2 my-lg-0">
-    <div class="dropdown"> 
-      <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><img class="rounded-circle" width="30" height="30" alt="100x100" src="upload/<?php echo $row["user_image"]; ?>"
+    <div class="dropdown "> &nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="dropdown-toggle" padding="10dp" type="button" data-toggle="dropdown">&nbsp;&nbsp;&nbsp;&nbsp; <img class="rounded-circle" width="30" height="30" alt="100x100" src="upload/<?php echo $row["user_image"]; ?>"
           data-holder-rendered="true">&nbsp;<?php echo $row["user_name"]; ?>
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
+  <span class="caret"></span></a>
+  <ul class="dropdown-menu ">
+  <a class="dropdown-item " href="profile.php">Profile</a> 
+    <a class="dropdown-item " href="change_password.php">Change Password</a>
+    <div class="dropdown-divider"></div>
+      <a class="dropdown-item " href="logout.php">Logout</a>
+    </div>
   </ul>
 </div>
     </form>
