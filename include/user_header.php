@@ -42,7 +42,9 @@
     <li class="nav-item">
           <a class="nav-link" href="enroll_exam.php" >Enroll Exam</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="../student/feedback.php" >FeedBack</a>
+        </li>
     </ul>
 
     <?php
