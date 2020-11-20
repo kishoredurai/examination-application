@@ -2,7 +2,7 @@
 
 //login.php
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $exam = new Examination;
 
@@ -14,7 +14,7 @@ include('header.php');
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-<link href="style/button.css" rel="stylesheet" type="text/css">
+<link href="../style/button.css" rel="stylesheet" type="text/css">
 <hr>
   <div class="container">
 
@@ -39,7 +39,7 @@ include('header.php');
             </span>
             <div class="card border border-success">
             <div class="card-header">Sign In
-                        <div style="float:right; font-size: 80%; position: relative; top:5px;" ><a href="#">Forgot password?</a></div></div>
+                        <div style="float:right; font-size: 80%; position: relative; top:5px;" ><a href="../master/forgot_password.php">Forgot password?</a></div></div>
               <!-- <div class="card-header" style="font-family:comic sans MS;color:blue;font-size:larger;"><center>Student Login</center></div> -->
               <div class="card-body">
                 <form method="post" id="user_login_form">
@@ -111,7 +111,7 @@ $(document).ready(function(){
     if($('#user_login_form').parsley().validate())
     {
       $.ajax({
-        url:"user_ajax_action.php",
+        url:"../user_ajax_action.php",
         method:"POST",
         data:$(this).serialize(),
         dataType:"json",

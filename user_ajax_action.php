@@ -83,6 +83,9 @@ if(isset($_POST['page']))
 		}
 	}
 
+	
+
+
 	if($_POST['page'] == 'login')
 	{
 		if($_POST['action'] == 'login')

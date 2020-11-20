@@ -2,7 +2,7 @@
 
 //register.php 
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $exam = new Examination;
 
@@ -16,7 +16,7 @@ include('header.php');
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-<link href="style/button.css" rel="stylesheet" type="text/css">
+<link href="../style/button.css" rel="stylesheet" type="text/css">
 
 	<div class="containter" >
   <div class="row">
@@ -93,7 +93,7 @@ $(document).ready(function(){
   window.ParsleyValidator.addValidator('checkemail', {
     validateString: function(value){
       return $.ajax({
-        url:'user_ajax_action.php',
+        url:'../user_ajax_action.php',
         method:'post',
         data:{page:'register', action:'check_email', email:value},
         dataType:"json",
@@ -138,7 +138,7 @@ $(document).ready(function(){
     if($('#user_register_form').parsley().validate())
     {
       $.ajax({
-        url:'user_ajax_action.php',
+        url:'../user_ajax_action.php',
         method:"POST",
         data:new FormData(this),
         dataType:"json",

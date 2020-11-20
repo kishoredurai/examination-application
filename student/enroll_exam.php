@@ -2,7 +2,7 @@
 
 //enroll_exam.php // source code modified by jacksonsilass@gmail.com +255 763169695 from weblessons
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $_SESSION['start'] = 0 ;
 $exam = new Examination;
@@ -11,7 +11,7 @@ $exam->user_session_private();
 
 $exam->Change_exam_status($_SESSION['user_id']);
 
-include('include/user_header.php');
+include('../include/user_header.php');
 
 ?>
 
@@ -50,7 +50,7 @@ $(document).ready(function(){
 		"serverSide" : true,
 		"order" : [],
 		"ajax" : {
-			url:"user_ajax_action.php",
+			url:"../user_ajax_action.php",
 			type:"POST",
 			data:{action:'fetch', page:'enroll_exam'}
 		},

@@ -2,13 +2,13 @@
 
 //profile.php // source code modified by jacksonsilass@gmail.com +255 763169695 from weblessons
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $exam = new Examination;
 
 $exam->user_session_private();
 
-include('include/user_header.php');
+include('../include/user_header.php');
 
 $exam->query = "
 	SELECT * FROM user_table 
@@ -58,7 +58,7 @@ $result = $exam->query_result();
 					    <div class="form-group">
 					        <label>Select Profile Image - </label>
 					        <input type="file" name="user_image" id="user_image" accept="image/*" /><br />
-					        <img src="upload/<?php echo $row["user_image"]; ?>" class="img-thumbnail" width="250"  />
+					        <img src="../upload/<?php echo $row["user_image"]; ?>" class="img-thumbnail" width="250"  />
 					        <input type="hidden" name="hidden_user_image" value="<?php echo $row["user_image"]; ?>" />
 					    </div>
 					    <br />
@@ -109,7 +109,7 @@ $(document).ready(function(){
 		if($('#profile_form').parsley().validate())
 		{
 			$.ajax({
-				url:"user_ajax_action.php",
+				url:"../user_ajax_action.php",
 				method:"POST",
 				data: new FormData(this),
 				dataType:"json",

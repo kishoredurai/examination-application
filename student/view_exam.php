@@ -103,7 +103,7 @@ function stop(){
 
 //view_exam.php 
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $exam = new Examination;
 
@@ -355,7 +355,7 @@ $(document).ready(function(){
 	function load_question(question_id = '')
 	{
 		$.ajax({
-			url:"user_ajax_action.php",
+			url:"../user_ajax_action.php",
 			method:"POST",
 			data:{exam_id:exam_id, question_id:question_id, page:'view_exam', action:'load_question'},
 			success:function(data)
@@ -378,7 +378,7 @@ $(document).ready(function(){
 	function question_navigation()
 	{
 		$.ajax({
-			url:"user_ajax_action.php",
+			url:"../user_ajax_action.php",
 			method:"POST",
 			data:{exam_id:exam_id, page:'view_exam', action:'question_navigation'},
 			success:function(data)
@@ -396,7 +396,7 @@ $(document).ready(function(){
 	function load_user_details()
 	{
 		$.ajax({
-			url:"user_ajax_action.php",
+			url:"../user_ajax_action.php",
 			method:"POST",
 			data:{page:'view_exam', action:'user_detail'},
 			success:function(data)
@@ -434,7 +434,7 @@ $(document).ready(function(){
         alert(answer_option);
         
 		$.ajax({
-			url:"user_ajax_action.php",
+			url:"../user_ajax_action.php",
 			method:"POST",
 			data:{question_id:question_id, answer_option:answer_option, exam_id:exam_id, page:'view_exam', action:'answer'},
 			success:function(data)

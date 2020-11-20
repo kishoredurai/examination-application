@@ -2,11 +2,11 @@
 
 //index.php // source code modified by jacksonsilass@gmail.com +255 763169695 from weblessons
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $exam = new Examination;
 
-include('include/user_header.php');
+include('../include/user_header.php');
 
 ?>
 
@@ -53,7 +53,7 @@ include('include/user_header.php');
 				{
 					exam_id = $('#exam_list').val();
 					$.ajax({
-						url:"user_ajax_action.php",
+						url:"../user_ajax_action.php",
 						method:"POST",
 						data:{action:'fetch_exam', page:'index', exam_id:exam_id},
 						success:function(data)
@@ -67,7 +67,7 @@ include('include/user_header.php');
 			$(document).on('click', '#enroll_button', function(){
 				exam_id = $('#enroll_button').data('exam_id');
 				$.ajax({
-					url:"user_ajax_action.php",
+					url:"../user_ajax_action.php",
 					method:"POST",
 					data:{action:'enroll_exam', page:'index', exam_id:exam_id},
 					beforeSend:function()
@@ -93,8 +93,8 @@ include('include/user_header.php');
 		{
 		?>
 		<div align="center">
-			<p><a href="student/register.php" class="btn btn-warning btn-lg">Register</a></p>
-			<p><a href="student/login.php" class="btn btn-dark btn-lg">Login</a></p>
+			<p><a href="register.php" class="btn btn-warning btn-lg">Register</a></p>
+			<p><a href="login.php" class="btn btn-dark btn-lg">Login</a></p>
 		</div>
 		<?php
 		}

@@ -2,9 +2,9 @@
 
 //pdf_exam_result.php // source code modified by jacksonsilass@gmail.com +255 763169695 from weblessons
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
-require_once('class/pdf.php');
+require_once('../class/pdf.php');
 
 $exam = new Examination;
 

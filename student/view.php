@@ -2,13 +2,13 @@
 
 //view_exam.php
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $exam = new Examination;
 
 $exam->user_session_private();
 
-include('header.php');
+include('../include/user_header.php');
 
 $exam_id = '';
 $exam_status = '';
@@ -58,6 +58,7 @@ if($exam_status == 'Completed')
 
 	$result = $exam->query_result();
 ?>
+<br><br><br><br>
 	<div class="card">
 		<div class="card-header">
 			<div class="row">

@@ -5,18 +5,18 @@
   	<title>Online Examination System in PHP</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="style1/bootstrap.min.css">
-    <link rel="stylesheet" href="style1/dataTables.bootstrap4.min.css">
-  	<script src="style1/jquery.min.js"></script>
-  	<script src="style1/parsley.js"></script>
-  	<script src="style1/popper.min.js"></script>
-  	<script src="style1/bootstrap.min.js"></script>
-    <script src="style1/dataTables.min.js"></script>
-    <script src="style1/dataTables.bootstrap4.min.js"></script>
-  	<link rel="stylesheet" href="style/style.css" />
-    <link rel="stylesheet" href="style/TimeCircles.css" />
-    <script src="style/TimeCircles.js"></script>
-    <link href="style/button.css" rel="stylesheet" type="text/css">
+  	<link rel="stylesheet" href="../style1/bootstrap.min.css">
+    <link rel="stylesheet" href="../style1/dataTables.bootstrap4.min.css">
+  	<script src="../style1/jquery.min.js"></script>
+  	<script src="../style1/parsley.js"></script>
+  	<script src="../style1/popper.min.js"></script>
+  	<script src="../style1/bootstrap.min.js"></script>
+    <script src="../style1/dataTables.min.js"></script>
+    <script src="../style1/dataTables.bootstrap4.min.js"></script>
+  	<link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/TimeCircles.css" />
+    <script src="../style/TimeCircles.js"></script>
+    <link href="../style/button.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="jumbotron text-center" style="margin-bottom:0; padding: 1rem 1rem;background-color:white;">

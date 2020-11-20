@@ -2,13 +2,13 @@
 
 //change_password.php // source code modified by jacksonsilass@gmail.com +255 763169695 from weblessons
 
-include('master/Examination.php');
+include('../master/Examination.php');
 
 $exam = new Examination;
 
 $exam->user_session_private();
 
-include('include/user_header.php');
+include('../include/user_header.php');
 
 ?>
 
@@ -65,7 +65,7 @@ $(document).ready(function(){
 		if($('#change_password_form').parsley().validate())
 		{
 			$.ajax({
-				url:"user_ajax_action.php",
+				url:"../user_ajax_action.php",
 				method:"POST",
 				data:$(this).serialize(),
 				dataType:"json",
