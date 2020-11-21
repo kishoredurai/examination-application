@@ -18,8 +18,13 @@ if (isset($_POST['feed'])) {
     $id = $_SESSION['user_id'];
     $type = $_POST['type'];
     $feedback = $_POST['feedback'];
+    $profilename = $_FILES["f_image"]['name'];
+    $profiletmpname = $_FILES["f_image"]['tmp_name'];
+//$profilename=$profiletmpname.$id;
 
-        $result = mysqli_query($db, "INSERT INTO `feedback_table`(`user_id`, `feed_type`, `feed` ) values ('$id','$type','$feedback');");
+move_uploaded_file($profiletmpname, '../feedback_image/'.$profilename);
+
+        $result = mysqli_query($db, "INSERT INTO `feedback_table`(`user_id`, `feed_type`, `feed`,`feed_image` ) values ('$id','$type','$feedback','$profilename');");
         echo "<script type='text/javascript'>alert(Feedback Updated);</script>";
     } 
 ?>
@@ -51,7 +56,7 @@ if (isset($_POST['feed'])) {
                 </div>
                 <!-- <div class="card-header" style="font-family:comic sans MS;color:blue;font-size:larger;"><center>Student Login</center></div> -->
                 <div class="card-body">
-                    <form method="post" id="feedback_add">
+                    <form method="post" role="form" enctype="multipart/form-data" id="feedback_add">
                         <div class="form-group">
                             <label for="sel1"><b>Feedback TO :</b></label>
                             <select class="form-control" name="type" id="sel1">
@@ -66,7 +71,10 @@ if (isset($_POST['feed'])) {
 
                             </div>
                         </div>
-
+                        <div class="form-group ">
+                    <label>Select Proof Image</label>
+                    <input type="file" accept="image/*"  name="f_image" id="user_image" />
+                  </div>
                         <div class="form-group" align="center">
                             <br>
 

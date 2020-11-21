@@ -30,11 +30,12 @@ require_once '../include/db.php';
                         <th>Feedback</th>
                         <th>Feedback Status</th>
                         <th>Feedback Remark</th>
-						<th>Feed applied Date and Time</th>				
+            <th>Feed applied Date and Time</th>	
+            <th>Feedback Image</th>				
 						<th>Action</th>
 					</tr>
 				</thead>
-
+        <tbody>
 <?php 
 require_once '../include/db.php';
 
@@ -42,31 +43,37 @@ $id = $_SESSION['user_id'];
           
 $sql= "SELECT * from feedback_table where user_id='$id' ;";
 $result = mysqli_query($db, $sql);
-
+$cnt=1;
 
 if (mysqli_num_rows($result)> 0) {
-while($row = mysqli_fetch_assoc($result)) {
-
+while($row = mysqli_fetch_assoc($result)) 
+{
 ?>
-				<tbody>
+			
             <tr>
                 <td><?php echo $row['f_id'];?></td>
 				<td><?php echo $row['feed_type'];?></td>
 				<td><?php echo $row['feed'];?></td>
 				<td><?php echo $row['feed_status'];?></td>
 				<td><?php echo $row['feed_remark'];?></td>
-				<td><?php echo $row['feed_timestamp'];?></td>
-				<td><?php echo $row['feed_timestamp'];?></td>
-			</tr>
+        <td><?php echo $row['feed_timestamp'];?></td>
+        <td>
+          <?php if($row['feed_image']!=NULL){?>
+          <img src="../feedback_image/<?php echo $row['feed_image'];?>" class="img-thumbnail" width="150" /></td><?php }else{?>
+            <div class="badge badge-danger text-wrap font-weight-bold" style="width: 8rem;height: 25px;font-size: 18px;"> No Image </div>
+            <?php	} if($row['feed_status']=="Pending") {?>
+				<td><a class="btn success" ">Delete</a></td><?php } ?>
+      </tr>
+      
+      <?php	}}?>
 				</tbody>
-				<?php
-	}}
-	?>
+		
 			</table>
 		</div>
 
 	</div>
 </div>
 </div>
+
 </body>
 </html>
