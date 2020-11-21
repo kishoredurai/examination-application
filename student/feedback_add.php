@@ -41,15 +41,7 @@ move_uploaded_file($profiletmpname, '../feedback_image/'.$profilename);
 
 
             <span id="message">
-                <?php
-                if (isset($_GET['verified'])) {
-                    echo '
-              <div class="alert alert-success">
-                Your email has been verified, now you can login
-              </div>
-              ';
-                }
-                ?>
+              
             </span>
             <div class="card border border-success">
                 <div class="card-header">Feedback Add

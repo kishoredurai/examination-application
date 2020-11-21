@@ -48,6 +48,9 @@ if(isset($_POST['page']))
 				':user_verfication_code'=>	$user_verfication_code,
 				':user_name'			=>	$_POST['user_name'],
 				':user_gender'			=>	$_POST['user_gender'],
+				':user_dob'		   		=>	$_POST['user_dob'],
+				':user_year'			=>	$_POST['user_year'],
+				':user_course'			=>	$_POST['user_course'],
 				':user_address'			=>	$_POST['user_address'],
 				':user_mobile_no'		=>	$_POST['user_mobile_no'],
 				':user_image'			=>	$user_image,
@@ -56,9 +59,9 @@ if(isset($_POST['page']))
 
 			$exam->query = "
 			INSERT INTO user_table 
-			(user_email_address, user_password, user_verfication_code, user_name, user_gender, user_address, user_mobile_no, user_image, user_created_on)
+			(user_email_address, user_password, user_verfication_code, user_name, user_gender, user_dob, user_year, user_course, user_address, user_mobile_no, user_image, user_created_on)
 			VALUES 
-			(:user_email_address, :user_password, :user_verfication_code, :user_name, :user_gender, :user_address, :user_mobile_no, :user_image, :user_created_on)
+			(:user_email_address, :user_password, :user_verfication_code, :user_name, :user_gender, :user_dob, :user_year, :user_course, :user_address, :user_mobile_no, :user_image, :user_created_on)
 			";
 
 			$exam->execute_query();
