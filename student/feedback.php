@@ -6,9 +6,9 @@ include('../master/Examination.php');
 $exam = new Examination;
 
 $exam->user_session_private();
-
+include('../include/db.php');	
 include('../include/user_header.php');
-
+require_once '../include/db.php';
 
 ?>
 <br><br><br>
@@ -30,13 +30,41 @@ include('../include/user_header.php');
                         <th>Feedback</th>
                         <th>Feedback Status</th>
                         <th>Feedback Remark</th>
-						<th>Feed applied Date</th>
-						<th>Feed applied Time</th>						
+						<th>Feed applied Date and Time</th>				
 						<th>Action</th>
 					</tr>
 				</thead>
+
+<?php 
+require_once '../include/db.php';
+
+$id = $_SESSION['user_id'];
+          
+$sql= "SELECT * from feedback_table where user_id='$id' ;";
+$result = mysqli_query($db, $sql);
+
+
+if (mysqli_num_rows($result)> 0) {
+while($row = mysqli_fetch_assoc($result)) {
+
+?>
+				<tbody>
+            <tr>
+                <td><?php echo $row['f_id'];?></td>
+				<td><?php echo $row['feed_type'];?></td>
+				<td><?php echo $row['feed'];?></td>
+				<td><?php echo $row['feed_status'];?></td>
+				<td><?php echo $row['feed_remark'];?></td>
+				<td><?php echo $row['feed_timestamp'];?></td>
+				<td><?php echo $row['feed_timestamp'];?></td>
+			</tr>
+				</tbody>
+				<?php
+	}}
+	?>
 			</table>
 		</div>
+
 	</div>
 </div>
 </div>
