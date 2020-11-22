@@ -40,10 +40,13 @@
     <ul class="navbar-nav mr-auto" style="font-size:18px;">
      
     <li class="nav-item">
-          <a class="nav-link" href="enroll_exam.php" >Enroll Exam</a>
+          <a  style="color: black;" class="nav-link" href="enroll_exam.php" >Enroll Exam</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../student/feedback.php" >FeedBack</a>
+          <a style="color: black;" class="nav-link" href="../student/feedback.php" >Feedback</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: black;" class="nav-link" href="../student/event_calender.php" >Upcoming Events</a>
         </li>
     </ul>
 
