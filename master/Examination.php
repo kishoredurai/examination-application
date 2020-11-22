@@ -276,12 +276,16 @@ class Examination
 		}
 	}
 
-	function Fill_exam_list()
+	function Fill_exam_list($user_id)
 	{
+		$this->query ="Select * from user_table where user_id= '$user_id';";
+		$results = $this->query_result();
+		$year=$results["user_year"];
+		$course=$results["user_course"];
 		$this->query = "
 		SELECT online_exam_id, online_exam_title 
 			FROM online_exam_table 
-			WHERE online_exam_status = 'Created' OR online_exam_status = 'Pending' 
+			WHERE online_exam_status = 'Created' OR online_exam_status = 'Pending' and user_year = '$year' and user_course = '$course'
 			ORDER BY online_exam_title ASC
 		";
 		$result = $this->query_result();

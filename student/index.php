@@ -28,8 +28,8 @@ include('../include/user_header.php');
 				<select name="exam_list" id="exam_list" class="form-control input-lg">
 					<option value="">Select Exam</option>
 					<?php
-
-				 echo $exam->Fill_exam_list();
+						$user_id=$_SESSION['user_id'];
+				 echo $exam->Fill_exam_list($user_id);
 
 					?>
 				</select>
