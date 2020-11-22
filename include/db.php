@@ -5,7 +5,7 @@ if (!$db) {
 }
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=calendar;charset=utf8', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=online_examination;charset=utf8', 'root', '');
 }
 catch(Exception $e)
 {

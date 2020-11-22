@@ -1,14 +1,5 @@
 <?php
 
-require_once('../include/db.php');
-
-
-$sql = "SELECT id, title, start, end, color FROM events ";
-
-$req = $bdd->prepare($sql);
-$req->execute();
-
-$events = $req->fetchAll();
 
 include('../master/Examination.php');
 $exam = new Examination;
@@ -17,6 +8,22 @@ $exam->user_session_private();
 include('../include/db.php');	
 include('../include/user_header.php');
 require_once '../include/db.php';
+
+$id = $_SESSION['user_id'];
+
+$result = mysqli_query($db,"SELECT * from user_table where user_id='$id' ;");
+$user = mysqli_fetch_assoc($result);
+$year=$user['user_year'];
+$course=$user['user_course'];
+$sql = "SELECT e_id, event_title, start, end, color FROM event_table where user_year='$year' and user_course='$course';";
+
+$req = $bdd->prepare($sql);
+$req->execute();
+
+$events = $req->fetchAll();
+
+
+
 
 ?>
 <br>
@@ -124,8 +131,8 @@ require_once '../include/db.php';
 				}
 			?>
 				{
-					id: '<?php echo $event['id']; ?>',
-					title: '<?php echo $event['title']; ?>',
+					id: '<?php echo $event['e_id']; ?>',
+					title: '<?php echo $event['event_title']; ?>',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
 					color: '<?php echo $event['color']; ?>',
