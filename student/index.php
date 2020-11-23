@@ -10,103 +10,402 @@ include('../include/user_header.php');
 
 ?>
 
-	<div class="containter">
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<?php
-	if(isset($_SESSION["user_id"]))
-		{
+<div class="containter">
+	<br />
+	<br />
+	
+<div class="container border border-warning">
 
-		?>
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
-				<select name="exam_list" id="exam_list" class="form-control input-lg">
-					<option value="">Select Exam</option>
-					<?php
-						$user_id=$_SESSION['user_id'];
-				 echo $exam->Fill_exam_list($user_id);
 
-					?>
-				</select>
-				<br />
-				<span id="exam_details"></span>
+    <div class="row ">
+		
+    	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-danger">
+				<div class="shape">
+					<div class="shape-text">
+						<span class="glyphicon glyphicon glyphicon-eye-open"></span>							
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+					Danger : <label class="label label-danger">323</label>
+					</h3>
+					<p>
+						 Oranı:
+						<br> 
+                        <div class="progress">
+             <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
+                     60%
+                        </div>
+                   </div>
+					</p>
+				</div>
 			</div>
-			<div class="col-md-3"></div>
 		</div>
-		<script>
-		$(document).ready(function(){
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-success">
+				<div class="shape">
+					<div class="shape-text">
+						<span class="glyphicon glyphicon glyphicon-th"></span>							
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+						 success : <label class="label label-success"> 323</label>
+					</h3>
+					<p>
+						Ortalama Oranı :
+						<br> 
+                        <div class="progress">
+             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
+                     60%
+                        </div>
+                   </div>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-radius offer-primary">
+				<div class="shape">
+					<div class="shape-text">
+						<span class="glyphicon  glyphicon-user"></span>							
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+						 primary : <label class="label label-primary"> 323</label>
+					</h3>
+					<p>
+						Ortalama Oranı:
+						<br> 
+                        <div class="progress">
+             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
+                     60%
+                        </div>
+                   </div>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-info">
+				<div class="shape">
+					<div class="shape-text">
+						<span class="glyphicon  glyphicon-home"></span>							
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+						İnfo : <label class="label label-info"> 323</label>
+					</h3>
+					<p>
+						Kullanma Oranı:
+						<br> 
+                        <div class="progress">
+             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
+                     60%
+                        </div>
+                   </div>
+					</p>
+				</div>
+			</div>
+		</div></div></div>
+		
+		<br>
+</div>
 
-			$('#exam_list').parsley();
+	<?php
+	if (isset($_SESSION["user_id"])) {
 
-			var exam_id = '';
+	?>
 
-			$('#exam_list').change(function(){
 
-				$('#exam_list').attr('required', 'required');
 
-				if($('#exam_list').parsley().validate())
-				{
-					exam_id = $('#exam_list').val();
-					$.ajax({
-						url:"../user_ajax_action.php",
-						method:"POST",
-						data:{action:'fetch_exam', page:'index', exam_id:exam_id},
-						success:function(data)
-						{
-							$('#exam_details').html(data);
-						}
-					});
-				}
-			});
 
-			$(document).on('click', '#enroll_button', function(){
-				exam_id = $('#enroll_button').data('exam_id');
+
+
+<div class="container">
+      
+  <div class="row">
+    <div class="col-sm-12" >
+    <div class="card border border-success">
+				<div class="card-header"><center>Enroll Exam</center> </div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<select name="exam_list" id="exam_list" class="form-control input-lg">
+							<option value="">Select Exam</option>
+							<?php
+							$user_id = $_SESSION['user_id'];
+							echo $exam->Fill_exam_list($user_id);
+
+							?>
+						</select>
+						<br />
+						<span id="exam_details"></span>
+					</div>
+
+				</div>
+			</div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+		$('#exam_list').parsley();
+
+		var exam_id = '';
+
+		$('#exam_list').change(function() {
+
+			$('#exam_list').attr('required', 'required');
+
+			if ($('#exam_list').parsley().validate()) {
+				exam_id = $('#exam_list').val();
 				$.ajax({
-					url:"../user_ajax_action.php",
-					method:"POST",
-					data:{action:'enroll_exam', page:'index', exam_id:exam_id},
-					beforeSend:function()
-					{
-						$('#enroll_button').attr('disabled', 'disabled');
-						$('#enroll_button').text('please wait');
+					url: "../user_ajax_action.php",
+					method: "POST",
+					data: {
+						action: 'fetch_exam',
+						page: 'index',
+						exam_id: exam_id
 					},
-					success:function()
-					{
-						$('#enroll_button').attr('disabled', false);
-						$('#enroll_button').removeClass('btn-warning');
-						$('#enroll_button').addClass('btn-success');
-						$('#enroll_button').text('Enroll success');
+					success: function(data) {
+						$('#exam_details').html(data);
 					}
 				});
-			});
-
+			}
 		});
-		</script>
-		<?php
-		 }
-	else
-		{
-		?>
-		<div align="center">
-			<p><a href="register.php" class="btn btn-warning btn-lg">Register</a></p>
-			<p><a href="login.php" class="btn btn-dark btn-lg">Login</a></p>
-		</div>
-		<?php
-		}
-		?>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
+
+		$(document).on('click', '#enroll_button', function() {
+			exam_id = $('#enroll_button').data('exam_id');
+			$.ajax({
+				url: "../user_ajax_action.php",
+				method: "POST",
+				data: {
+					action: 'enroll_exam',
+					page: 'index',
+					exam_id: exam_id
+				},
+				beforeSend: function() {
+					$('#enroll_button').attr('disabled', 'disabled');
+					$('#enroll_button').text('please wait');
+				},
+				success: function() {
+					$('#enroll_button').attr('disabled', false);
+					$('#enroll_button').removeClass('btn-warning');
+					$('#enroll_button').addClass('btn-success');
+					$('#enroll_button').text('Enroll success');
+				}
+			});
+		});
+
+	});
+</script>
+<?php
+	} else {
+?>
+	<div align="center">
+		<p><a href="register.php" class="btn btn-warning btn-lg">Register</a></p>
+		<p><a href="login.php" class="btn btn-dark btn-lg">Login</a></p>
 	</div>
+<?php
+	}
+?>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</div>
 </div>
 </body>
+
+<style>
+	.shape {
+		border-style: solid;
+		border-width: 0 70px 40px 0;
+		float: right;
+		height: 0px;
+		width: 0px;
+		-ms-transform: rotate(360deg);
+		/* IE 9 */
+		-o-transform: rotate(360deg);
+		/* Opera 10.5 */
+		-webkit-transform: rotate(360deg);
+		/* Safari and Chrome */
+		transform: rotate(360deg);
+	}
+
+	.offer {
+		background: #fff;
+		border: 1px solid #ddd;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		margin: 15px 0;
+		overflow: hidden;
+	}
+
+	.offer:hover {
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		transform: rotate scale(1.1);
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out;
+	}
+
+	.shape {
+		border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+	}
+
+	.offer-radius {
+		border-radius: 7px;
+	}
+
+	.offer-danger {
+		border-color: #d9534f;
+	}
+
+	.offer-danger .shape {
+		border-color: transparent #d9534f transparent transparent;
+	}
+
+	.offer-success {
+		border-color: #5cb85c;
+	}
+
+	.offer-success .shape {
+		border-color: transparent #5cb85c transparent transparent;
+	}
+
+	.offer-default {
+		border-color: #999999;
+	}
+
+	.offer-default .shape {
+		border-color: transparent #999999 transparent transparent;
+	}
+
+	.offer-primary {
+		border-color: #428bca;
+	}
+
+	.offer-primary .shape {
+		border-color: transparent #428bca transparent transparent;
+	}
+
+	.offer-info {
+		border-color: #5bc0de;
+	}
+
+	.offer-info .shape {
+		border-color: transparent #5bc0de transparent transparent;
+	}
+
+	.offer-warning {
+		border-color: #f0ad4e;
+	}
+
+	.offer-warning .shape {
+		border-color: transparent #f0ad4e transparent transparent;
+	}
+
+	.shape-text {
+		color: #fff;
+		font-size: 12px;
+		font-weight: bold;
+		position: relative;
+		right: -40px;
+		top: 2px;
+		white-space: nowrap;
+		-ms-transform: rotate(30deg);
+		/* IE 9 */
+		-o-transform: rotate(360deg);
+		/* Opera 10.5 */
+		-webkit-transform: rotate(30deg);
+		/* Safari and Chrome */
+		transform: rotate(30deg);
+	}
+
+	.offer-content {
+		padding: 0 20px 10px;
+	}
+
+	@media (min-width: 487px) {
+		.container {
+			max-width: 750px;
+		}
+
+		.col-sm-6 {
+			width: 50%;
+		}
+	}
+
+	@media (min-width: 900px) {
+		.container {
+			max-width: 970px;
+		}
+
+		.col-md-4 {
+			width: 33.33333333333333%;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.container {
+			max-width: 1170px;
+		}
+
+		.col-lg-3 {
+			width: 25%;
+		}
+	}
+</style>
+
+
+
+
 
 </html>
