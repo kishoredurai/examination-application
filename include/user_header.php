@@ -40,13 +40,13 @@
     <ul class="navbar-nav mr-auto" style="font-size:18px;">
      
     <li class="nav-item">
-          <a  style="color: black;" class="nav-link" href="enroll_exam.php" >Enroll Exam</a>
+         <div class="topnav"><a  style="color: black;" class="nav-link" href="enroll_exam.php" >Enrolled Exam</a></div>
         </li>
         <li class="nav-item">
-          <a style="color: black;" class="nav-link" href="../student/feedback.php" >Feedback</a>
+        <div class="topnav"><a style="color: black;" class="nav-link" href="../student/feedback.php" >Feedback</a></div>
         </li>
         <li class="nav-item">
-          <a style="color: black;" class="nav-link" href="../student/event_calender.php" >Upcoming Events</a>
+        <div class="topnav"> <a style="color: black;" class="nav-link" href="../student/event_calender.php" >Upcoming Events</a></div>
         </li>
     </ul>
 
@@ -85,7 +85,7 @@ foreach($result as $row)
  
  .topnav {
   overflow: hidden;
-  font-size: 10px;
+  font-size: 18px;
   float:left;
   color: blue; 
 }
