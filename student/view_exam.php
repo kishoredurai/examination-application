@@ -1,13 +1,8 @@
 <head>
-    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-    <TITLE>WebGazer Demo</TITLE>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" href="bootstrap.min.css">
+    
     <script src='https://meet.jit.si/external_api.js'></script>
-    <center><div id="jitsi-container"></div>
-    <div><canvas id="canvas"></canvas></div>
-
-    <div id="label-container"></div></center>
+    <div id="jitsi-container" style="padding-right:0px" align="right"></div>
+    
     
     <!-- <script type="text/javascript"> 
 function start(){
@@ -28,11 +23,10 @@ function stop(){
 <body LANG="en-US" LINK="#0000ff" DIR="LTR" window.onload="start();">
 
 
-<canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
+<canvas id="plotting_canvas" width="600" height="600" style="cursor:crosshair;"></canvas>
     <script src="webgazer.js"></script>
     <script src="jquery.min.js"></script>
     <script src="sweetalert.min.js"></script>
-
     <script src="main.js"></script>
     <script src="calibration.js"></script>
     <script src="precision_calculation.js"></script>
@@ -145,7 +139,7 @@ else
 
 ?>
 
-<br />
+
 <?php
 $current_datetime = date("Y-m-d") . ' ' . date("H:i:s", STRTOTIME(date('h:i:sa')));
 
@@ -179,7 +173,7 @@ if($exam_status == 'Started')
 				<div id="single_question_area"></div>
 			</div>
 		</div>
-		<br />
+		<br><Br>
 		<div id="question_navigation_area" class="border border-warning"></div>
 	</div>
 	<div class="col-md-4">

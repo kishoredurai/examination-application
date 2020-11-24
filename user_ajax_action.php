@@ -616,8 +616,8 @@ if(isset($_POST['page']))
 
 			foreach($result as $row)
 			{
-				$output .= '<div class="col-md-3"><br>
-				<img src="https://upload.wikimedia.org/wikipedia/en/7/77/Bannari_Amman_Institute_of_Technology_logo.png" height="140px" width="90px" />
+				$output .= '<div class="col-md-3">
+				<img src="https://upload.wikimedia.org/wikipedia/en/7/77/Bannari_Amman_Institute_of_Technology_logo.png" height="140px" width="100px" />
 
 				</div>
 				<div class="col-md-9">

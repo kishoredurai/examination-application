@@ -19,10 +19,10 @@
     <link href="../style/button.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<!-- <div class="jumbotron text-center" style="margin-bottom:0; padding: 1rem 1rem;background-color:white;">
-        <img src="https://www.bitsathy.ac.in/assets/images/headlogo.svg" class="img-fluid" width="900" alt="Online Examination System in PHP">
+	<div class="jumbotron text-center" style="margin-bottom:0;background-color:white;">
+        <img src="https://www.bitsathy.ac.in/assets/images/headlogo.svg" class="img-fluid" width="700" alt="Online Examination System in PHP">
        
-  </div> -->
+  </div>
 
   <?php
   if(isset($_SESSION['user_id']))
