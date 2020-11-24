@@ -23,7 +23,8 @@ if(isset($_GET["code"]))
 	$result = $exam->query_result();
 
 	$output = '
-	<h3 align="center">Exam Result</h3>
+        <center><img align="center" src="../include/BIT.png"  width="800"></center><br>
+       	<h3 align="center" style="font-size:50px;">Exam Result</h3>
 	<table width="100%" border="1" cellpadding="5" cellspacing="0">
 		<tr>
 			<th>Question</th>

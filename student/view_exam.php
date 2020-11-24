@@ -1,7 +1,7 @@
 <head>
     
     <script src='https://meet.jit.si/external_api.js'></script>
-    <div id="jitsi-container" style="padding-right:0px" align="right"></div>
+    <div id="jitsi-container" style="padding-right:20px" align="right"></div>
     
     
     <!-- <script type="text/javascript"> 

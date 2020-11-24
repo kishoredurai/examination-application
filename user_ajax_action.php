@@ -413,11 +413,11 @@ if(isset($_POST['page']))
                
 				if($row["online_exam_status"] == 'Started')
 				{
-					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">View Exam</a>';
+					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn blue btn-sm">View Exam</a>';
 				}
 				if($row["online_exam_status"] == 'Completed')
 				{
-					$view_exam = '<a href="view.php?code='.$row["online_exam_code"].'" class="btn btn-info btn-sm">View Exam</a>';
+					$view_exam = '<a href="view.php?code='.$row["online_exam_code"].'" class="btn warning btn-sm">View Exam</a>';
 				}
 
 				
@@ -550,14 +550,14 @@ if(isset($_POST['page']))
 				{
 					$if_next_disable = 'disabled';
 				}
-
+				$exam_id=$_POST["exam_id"];
 				$output .= '
 					<br /><br />
 				  	<div align="center">
 				   		<button type="button" name="previous" class="btn blue previous" id="'.$previous_id.'" '.$if_previous_disable.'>PREVIOUS</button>&nbsp;
 						   <button type="button" name="next" class="btn info next" id="'.$next_id.'" '.$if_next_disable.'>  NEXT  </button>
 							   
-						  <br> <hr> <a href="submit.php">
+						  <br> <hr> <a href="submit.php?id="'.$exam_id.'">
 						  <button class="btn success" >SUBMIT</button>
 					  </a></br></hr>
 				  	</div>

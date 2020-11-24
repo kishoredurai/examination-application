@@ -29,8 +29,8 @@ if(isset($_REQUEST['del']))
 <h1 style="align-content: center;font-size:50px;font-family:cursive;" align="center">Feedback</h1><br>
 
 <div class="card border border-success">
-    <div class="card-header">Feedback List
-    <div style="float:right; font-size: 50%; position: relative;" ><a class="btn btn-info" href="feedback_add.php">Add Feed</a></div></div>
+    <div class="card-header" style="font-size: 30px;font-family:Times;">Feedback List
+    <div style="float:right; font-size: 50%; position: relative;" ><a class="btn info" href="feedback_add.php">Add Feed</a></div></div>
 
 	<div class="card-body">
 		<div class="table-responsive">
@@ -74,7 +74,7 @@ while($row = mysqli_fetch_assoc($result))
           <img src="../feedback_image/<?php echo $row['feed_image'];?>" class="img-thumbnail" width="150" /></td><?php }else{?>
             <div class="badge badge-danger text-wrap font-weight-bold" style="width: 8rem;height: 25px;font-size: 18px;"> No Image </div>
             <?php	} if($row['feed_status']=="Pending") {?>
-				<td><a class="btn btn-warning" href="feedback.php?del=<?php echo $row['f_id'];?>" >Delete</a></td><?php }else{ ?>
+				<td><a class="btn warning" href="feedback.php?del=<?php echo $row['f_id'];?>" >Delete</a></td><?php }else{ ?>
 					<td><div class="badge badge-success text-wrap font-weight-bold" style="width: 8rem;height: 25px;font-size: 18px;">Solved</div></td>
 
       </tr>

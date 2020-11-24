@@ -58,7 +58,7 @@ if($exam_status == 'Completed')
 
 	$result = $exam->query_result();
 ?>
-<br><br>	<h1 style="align-content: center;font-size:50px;font-family:cursive;" align="center">Change Password</h1><br>
+<br><br>	<h1 style="align-content: center;font-size:50px;font-family:cursive;" align="center">Online Exam Results</h1><br>
 <br><br>
 	<div class="card border border-primary">
 		<div class="card-header">

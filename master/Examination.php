@@ -299,8 +299,7 @@ class Examination
 		$this->query = "
 		SELECT * FROM user_exam_enroll_table 
 		WHERE exam_id = '$exam_id' 
-		AND user_id = '$user_id'
-		";
+		AND user_id = '$user_id'		";
 		if($this->total_row() > 0)
 		{
 			return true;
@@ -350,6 +349,8 @@ class Examination
 				";
 
 				$this->execute_query();
+
+				
 			}
 			else
 			{
@@ -364,6 +365,14 @@ class Examination
 					UPDATE online_exam_table 
 					SET online_exam_status = :online_exam_status 
 					WHERE online_exam_id = '".$row['online_exam_id']."'
+					";
+
+					$this->execute_query();
+
+					$this->query = "
+					UPDATE user_exam_enroll_table 
+					SET attendance_status = 'Present' 
+					WHERE exam_id = '".$row['online_exam_id']."'AND user_id='".$user_id."'				
 					";
 
 					$this->execute_query();
