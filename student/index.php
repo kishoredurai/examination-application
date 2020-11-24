@@ -8,149 +8,143 @@ $exam = new Examination;
 
 include('../include/user_header.php');
 
+include('../include/db.php');
 ?>
+<?php
+require_once '../include/db.php';
 
+$id = $_SESSION['user_id'];
+
+$sql = "SELECT COUNT(*) as cnt from feedback_table where f_id='$id' ;";
+$result = mysqli_query($db, $sql);
+$row = mysqli_fetch_assoc($result);
+$row_comp = $row['cnt'];
+
+?>
 <div class="containter">
 	<br />
-	<br />
-	
-<div class="container border border-warning">
 
+	<h1 style="align-content: center;font-size:60px;font-family:Cursive;" align="center">Student Dashboard</h1><br>
 
-    <div class="row ">
-		
-    	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			<div class="offer offer-danger">
-				<div class="shape">
-					<div class="shape-text">
-						<span class="glyphicon glyphicon glyphicon-eye-open"></span>							
+	<div class="container border border-warning">
+
+		<div class="row ">
+			<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="offer offer-danger">
+					<div class="shape">
+						<div class="shape-text">
+							<span class="glyphicon glyphicon glyphicon-eye-open"></span>
+						</div>
+					</div>
+					<div class="offer-content">
+						<h3 class="lead">
+							Feedback : <label class="label label-danger"><?php echo $row_comp ?></label>
+						</h3>
+						<p>
+							Percentage:
+							<br>
+							<div class="progress">
+								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
+									<?php echo 10 * $row_comp ?>%
+								</div>
+							</div>
+						</p>
 					</div>
 				</div>
-				<div class="offer-content">
-					<h3 class="lead">
-					Danger : <label class="label label-danger">323</label>
-					</h3>
-					<p>
-						 Oranı:
-						<br> 
-                        <div class="progress">
-             <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
-                     60%
-                        </div>
-                   </div>
-					</p>
+			</div>
+
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="offer offer-radius offer-primary">
+					<div class="shape">
+						<div class="shape-text">
+							<span class="glyphicon  glyphicon-user"></span>
+						</div>
+					</div>
+					<div class="offer-content">
+						<h3 class="lead">
+							Exam : <label class="label label-primary"> <?php echo $row_comp ?></label>
+						</h3>
+						<p>
+							Ortalama Oranı:
+							<br>
+							<div class="progress">
+								<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
+									<?php echo 10 * $row_comp ?>%
+								</div>
+							</div>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="offer offer-info">
+					<div class="shape">
+						<div class="shape-text">
+							<span class="glyphicon  glyphicon-home"></span>
+						</div>
+					</div>
+					<div class="offer-content">
+						<h3 class="lead">
+							İnfo : <label class="label label-info"> <?php echo $row_comp ?></label>
+						</h3>
+						<p>
+							Kullanma Oranı:
+							<br>
+							<div class="progress">
+								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 20 * $row_comp ?>%">
+									<?php echo 20 * $row_comp ?>%
+								</div>
+							</div>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			<div class="offer offer-success">
-				<div class="shape">
-					<div class="shape-text">
-						<span class="glyphicon glyphicon glyphicon-th"></span>							
-					</div>
-				</div>
-				<div class="offer-content">
-					<h3 class="lead">
-						 success : <label class="label label-success"> 323</label>
-					</h3>
-					<p>
-						Ortalama Oranı :
-						<br> 
-                        <div class="progress">
-             <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
-                     60%
-                        </div>
-                   </div>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			<div class="offer offer-radius offer-primary">
-				<div class="shape">
-					<div class="shape-text">
-						<span class="glyphicon  glyphicon-user"></span>							
-					</div>
-				</div>
-				<div class="offer-content">
-					<h3 class="lead">
-						 primary : <label class="label label-primary"> 323</label>
-					</h3>
-					<p>
-						Ortalama Oranı:
-						<br> 
-                        <div class="progress">
-             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
-                     60%
-                        </div>
-                   </div>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			<div class="offer offer-info">
-				<div class="shape">
-					<div class="shape-text">
-						<span class="glyphicon  glyphicon-home"></span>							
-					</div>
-				</div>
-				<div class="offer-content">
-					<h3 class="lead">
-						İnfo : <label class="label label-info"> 323</label>
-					</h3>
-					<p>
-						Kullanma Oranı:
-						<br> 
-                        <div class="progress">
-             <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%" >
-                     60%
-                        </div>
-                   </div>
-					</p>
-				</div>
-			</div>
-		</div></div></div>
-		
-		<br>
+	</div>
+
+	<br>
 </div>
 
-	<?php
-	if (isset($_SESSION["user_id"])) {
+<?php
+if (isset($_SESSION["user_id"])) {
 
-	?>
-
-
+?>
 
 
+	<br><br>
 
 
-<div class="container">
-      
-  <div class="row">
-    <div class="col-sm-12" >
-    <div class="card border border-success">
-				<div class="card-header"><center>Enroll Exam</center> </div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<select name="exam_list" id="exam_list" class="form-control input-lg">
-							<option value="">Select Exam</option>
-							<?php
-							$user_id = $_SESSION['user_id'];
-							echo $exam->Fill_exam_list($user_id);
 
-							?>
-						</select>
-						<br />
-						<span id="exam_details"></span>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card border border-success">
+					<div class="card-header" style="font-family:monospace;font-size:20px;">
+						<center>Enroll Exam</center>
 					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<select name="exam_list" id="exam_list" class="form-control input-lg">
+								<option value="">Select Exam</option>
+								<?php
+								$user_id = $_SESSION['user_id'];
+								echo $exam->Fill_exam_list($user_id);
 
+								?>
+							</select>
+							<br />
+							<span id="exam_details"></span>
+						</div>
+
+					</div>
 				</div>
 			</div>
-    </div>
-    
-  </div>
-</div>
+
+		</div>
+	</div>
 
 
 
@@ -187,68 +181,68 @@ include('../include/user_header.php');
 
 
 
-<script>
-	$(document).ready(function() {
+	<script>
+		$(document).ready(function() {
 
-		$('#exam_list').parsley();
+			$('#exam_list').parsley();
 
-		var exam_id = '';
+			var exam_id = '';
 
-		$('#exam_list').change(function() {
+			$('#exam_list').change(function() {
 
-			$('#exam_list').attr('required', 'required');
+				$('#exam_list').attr('required', 'required');
 
-			if ($('#exam_list').parsley().validate()) {
-				exam_id = $('#exam_list').val();
+				if ($('#exam_list').parsley().validate()) {
+					exam_id = $('#exam_list').val();
+					$.ajax({
+						url: "../user_ajax_action.php",
+						method: "POST",
+						data: {
+							action: 'fetch_exam',
+							page: 'index',
+							exam_id: exam_id
+						},
+						success: function(data) {
+							$('#exam_details').html(data);
+						}
+					});
+				}
+			});
+
+			$(document).on('click', '#enroll_button', function() {
+				exam_id = $('#enroll_button').data('exam_id');
 				$.ajax({
 					url: "../user_ajax_action.php",
 					method: "POST",
 					data: {
-						action: 'fetch_exam',
+						action: 'enroll_exam',
 						page: 'index',
 						exam_id: exam_id
 					},
-					success: function(data) {
-						$('#exam_details').html(data);
+					beforeSend: function() {
+						$('#enroll_button').attr('disabled', 'disabled');
+						$('#enroll_button').text('please wait');
+					},
+					success: function() {
+						$('#enroll_button').attr('disabled', false);
+						$('#enroll_button').removeClass('btn-warning');
+						$('#enroll_button').addClass('btn-success');
+						$('#enroll_button').text('Enroll success');
 					}
 				});
-			}
-		});
-
-		$(document).on('click', '#enroll_button', function() {
-			exam_id = $('#enroll_button').data('exam_id');
-			$.ajax({
-				url: "../user_ajax_action.php",
-				method: "POST",
-				data: {
-					action: 'enroll_exam',
-					page: 'index',
-					exam_id: exam_id
-				},
-				beforeSend: function() {
-					$('#enroll_button').attr('disabled', 'disabled');
-					$('#enroll_button').text('please wait');
-				},
-				success: function() {
-					$('#enroll_button').attr('disabled', false);
-					$('#enroll_button').removeClass('btn-warning');
-					$('#enroll_button').addClass('btn-success');
-					$('#enroll_button').text('Enroll success');
-				}
 			});
-		});
 
-	});
-</script>
+		});
+	</script>
 <?php
-	} else {
+} else {
 ?>
 	<div align="center">
 		<p><a href="register.php" class="btn btn-warning btn-lg">Register</a></p>
 		<p><a href="login.php" class="btn btn-dark btn-lg">Login</a></p>
 	</div>
 <?php
-	}
+}
 ?>
 <br />
 <br />
