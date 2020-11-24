@@ -18,13 +18,14 @@ $exam->query = "
 $result = $exam->query_result();
 
 ?>
-
+<br><br>
 	<div class="containter">
+	<h1 style="align-content: center;font-size:50px;font-family:cursive;" align="center">Profile</h1><br>
+
 		<div class="d-flex justify-content-center">
-			<br /><br />
+			<br />
 			<span id="message"></span>
-			<div class="card" style="margin-top:50px;margin-bottom: 100px;">
-        		<div class="card-header"><h4>Profile</h4></div>
+			<div class="card border border-success" style="margin-top:20px;margin-bottom: 100px;">
         		<div class="card-body">
         			<form method="post" id="profile_form">
         				<?php
@@ -35,7 +36,14 @@ $result = $exam->query_result();
         				$(document).ready(function(){
         					$('#user_gender').val("<?php echo $row["user_gender"]; ?>");
         				});
-        				</script>
+						</script>
+						<div class="form-group">
+					      
+							<center><img src="../upload/<?php echo $row["user_image"]; ?>" class="img-thumbnail"  width="180" style="border-radius: 100%;" /><br><br></center>
+							<label>Select Profile Image - </label>
+							<input type="file" name="user_image" id="user_image" accept="image/*" />
+					        <input type="hidden" name="hidden_user_image" value="<?php echo $row["user_image"]; ?>" />
+					    </div>
 					    <div class="form-group">
 					        <label>Enter Name</label>
 					        <input type="text" name="user_name" id="user_name" class="form-control" value="<?php echo $row["user_name"]; ?>" />
@@ -55,17 +63,12 @@ $result = $exam->query_result();
 					        <label>Enter Mobile Number</label>
 					        <input type="text" name="user_mobile_no" id="user_mobile_no" class="form-control" value="<?php echo $row["user_mobile_no"]; ?>" />
 					    </div>
-					    <div class="form-group">
-					        <label>Select Profile Image - </label>
-					        <input type="file" name="user_image" id="user_image" accept="image/*" /><br />
-					        <img src="../upload/<?php echo $row["user_image"]; ?>" class="img-thumbnail" width="250"  />
-					        <input type="hidden" name="hidden_user_image" value="<?php echo $row["user_image"]; ?>" />
-					    </div>
+					    
 					    <br />
 					    <div class="form-group" align="center">
 					        <input type="hidden" name="page" value="profile" />
 					        <input type="hidden" name="action" value="profile" />
-					        <input type="submit" name="user_profile" id="user_profile" class="btn btn-info" value="Save" />
+					        <input type="submit" name="user_profile" id="user_profile" class="btn blue" value="Save" />
 					    </div>
 					    <?php
 						}

@@ -4,26 +4,37 @@
     padding: 6px 20px;
     font-size: 20px;
     cursor: pointer;
-  }
-  
-  .success {
-  background-color: #2eb82e;
+}
+
+.success {
+    background-color: #2eb82e;
     border-color: #4CAF50;
     color: white;
-  }
-  
-  .success:hover {
+}
+
+.success:hover {
     background-color: white;
     color: green;
-  }
-  
-  .blue {
-   background-color: #0073e6;
-    border-color:#0073e6;
+}
+
+.blue {
+    background-color: #0073e6;
+    border-color: #0073e6;
     color: white;
-  }
-  
-  .blue:hover {
+}
+
+.blue:hover {
     background-color: white;
     color: #0073e6;
-  }
+}
+
+.info {
+    background-color: #e439e4;
+    border-color: #e616db;
+    color: white;
+}
+
+.info:hover {
+    background-color: white;
+    color: #dd1ec4;
+}

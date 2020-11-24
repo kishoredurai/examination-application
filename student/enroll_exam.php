@@ -16,8 +16,10 @@ include('../include/user_header.php');
 ?>
 
 <br />
+<h1 style="align-content: center;font-size:50px;font-family:cursive;" align="center">Enrolled Exam</h1><br>
+
 <div class="card">
-	<div class="card-header">Online Exam List </div>
+	<div class="card-header">Online Exam List of user </div>
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered table-striped table-hover" id="exam_data_table">

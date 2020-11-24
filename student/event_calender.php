@@ -49,15 +49,14 @@ $events = $req->fetchAll();
     </style>
  <br>
     <div class="container">
-
-        <div class="row">
+<center>	<h1>Upcoming Events with Time</h1></center>
+        <div class="row ">
             <div class="col-lg-12 text-center">
-                <h1>Upcoming Events with Time</h1>
-                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
-                <div id="calendar" class="col-centered">
+               <br><br>
+                <div id="calendar" class="col-centered border border-primary" >
                 </div>
             </div>
-			
+		
         </div>
         <!-- /.row -->
 	
