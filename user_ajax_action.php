@@ -554,21 +554,11 @@ if(isset($_POST['page']))
 				$output .= '
 					<br /><br />
 				  	<div align="center">
-				   		<button type="button" name="previous" class="btn btn-info btn-lg previous" id="'.$previous_id.'" '.$if_previous_disable.'>Previous</button>
-						   <button type="button" name="next" class="btn btn-warning btn-lg next" id="'.$next_id.'" '.$if_next_disable.'>Next</button>
+				   		<button type="button" name="previous" class="btn blue previous" id="'.$previous_id.'" '.$if_previous_disable.'>PREVIOUS</button>&nbsp;
+						   <button type="button" name="next" class="btn info next" id="'.$next_id.'" '.$if_next_disable.'>  NEXT  </button>
 							   
 						  <br> <hr> <a href="submit.php">
-						  <button style="border: none;
-						  color: white;
-						  padding: 15px 32px;
-						  text-align: center;
-						  text-decoration: none;
-						  display: inline-block;
-						  font-size: 16px;
-						  margin: 4px 2px;
-						  border-radius: 8px;
-						  background-color: #00ffcc;
-						  cursor: pointer;">submit</button>
+						  <button class="btn success" >SUBMIT</button>
 					  </a></br></hr>
 				  	</div>
 					  <br /><br />';
@@ -618,7 +608,7 @@ if(isset($_POST['page']))
 			$result = $exam->query_result();
 
 			$output = '
-			<div class="card">
+			<div class="card border border-primary">
 				<div class="card-header">User Details</div>
 				<div class="card-body">
 					<div class="row">
@@ -626,11 +616,12 @@ if(isset($_POST['page']))
 
 			foreach($result as $row)
 			{
-				$output .= '
-				<div class="col-md-3">
-					<img src="upload/'.$row["user_image"].'" class="img-fluid" />
+				$output .= '<div class="col-md-3"><br>
+				<img src="https://upload.wikimedia.org/wikipedia/en/7/77/Bannari_Amman_Institute_of_Technology_logo.png" height="140px" width="90px" />
+
 				</div>
 				<div class="col-md-9">
+
 					<table class="table table-bordered">
 						<tr>
 							<th>Name</th>

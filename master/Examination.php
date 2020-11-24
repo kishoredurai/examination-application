@@ -280,14 +280,12 @@ class Examination
 	{
 		$this->query ="Select * from user_table where user_id= '$user_id';";
 		$results = $this->query_result();
-		$year=$results["user_year"];
-		$course=$results["user_course"];
-		$this->query = "
-		SELECT online_exam_id, online_exam_title 
-			FROM online_exam_table 
-			WHERE online_exam_status = 'Created' OR online_exam_status = 'Pending' and user_year = '$year' and user_course = '$course'
-			ORDER BY online_exam_title ASC
-		";
+		foreach($results as $rows)
+		{
+		$year=$rows['user_year'];
+		$course=$rows["user_course"];
+		}
+		$this->query = "SELECT online_exam_id, online_exam_title FROM online_exam_table WHERE user_year = '$year' AND user_course = '$course' AND online_exam_status = 'Pending' OR online_exam_status = 'Created' ORDER BY online_exam_title ASC";
 		$result = $this->query_result();
 		$output = '';
 		foreach($result as $row)

@@ -29,12 +29,23 @@
 }
 
 .info {
-    background-color: #e439e4;
-    border-color: #e616db;
+    background-color: #830983;
+    border-color: #830983;
     color: white;
 }
 
 .info:hover {
     background-color: white;
-    color: #dd1ec4;
+    color: #830983;
+}
+
+.warning {
+    background-color: #da6c06;
+    border-color: #da6c06;
+    color: white;
+}
+
+.warning:hover {
+    background-color: white;
+    color: #da6c06;
 }

@@ -109,7 +109,7 @@ $exam = new Examination;
 
 $exam->user_session_private();
 
-include('header.php');
+include('../include/exam_header.php');
 
 $exam_id = '';
 $exam_status = '';
@@ -171,7 +171,7 @@ if($exam_status == 'Started')
 ?>
 <div class="row">
 	<div class="col-md-8">
-		<div class="card">
+		<div class="card border border-success">
 			<div class="card-header">Online Exam </div>
 			<div class="card-body">
 			<!-- <img src="master/logo.jpg" alt="question image" width="450" height="450"> -->
@@ -180,18 +180,18 @@ if($exam_status == 'Started')
 			</div>
 		</div>
 		<br />
-		<div id="question_navigation_area"></div>
+		<div id="question_navigation_area" class="border border-warning"></div>
 	</div>
 	<div class="col-md-4">
 		<br />
 		<div align="center">
-			<div id="exam_timer" data-timer="<?php echo $remaining_minutes; ?>" style="max-width:400px; width: 100%; height: 200px;"></div>
+			<div id="exam_timer" class="border border-Secondary" data-timer="<?php echo $remaining_minutes; ?>" style="max-width:400px; width: 100%; height: 200px;"></div>
 		</div>
 		<br />
 		<div id="user_details_area"></div>		
 	</div>
 </div>
-
+<br><br>
 <?php
 }
 if($exam_status == 'Completed')
