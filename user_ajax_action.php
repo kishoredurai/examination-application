@@ -411,7 +411,7 @@ if(isset($_POST['page']))
 				
 				$sub_array[] = $status;				
                
-				if($row["online_exam_status"] == 'Started')
+				if($row["online_exam_status"] == 'Started' and $row["exam_status"] == '')
 				{
 					$view_exam = '<a href="view_exam.php?code='.$row["online_exam_code"].'" class="btn blue btn-sm">View Exam</a>';
 				}
@@ -419,7 +419,10 @@ if(isset($_POST['page']))
 				{
 					$view_exam = '<a href="view.php?code='.$row["online_exam_code"].'" class="btn warning btn-sm">View Exam</a>';
 				}
-
+				if($row["online_exam_status"] == 'Started' and $row["exam_status"] == 'Competed')
+				{
+					$view_exam = '<span class="badge badge-success">Exam submitted</span>';
+				}
 				
 				$sub_array[] = $view_exam;
 
