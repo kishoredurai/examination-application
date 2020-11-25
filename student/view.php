@@ -63,9 +63,9 @@ if($exam_status == 'Completed')
 	<div class="card border border-primary">
 		<div class="card-header">
 			<div class="row">
-				<div class="col-md-8">Online Exam Result</div>
+				<div class="col-md-8" style="font-family:Arial;font-size:28px;">Online Exam Result</div>
 				<div class="col-md-4" align="right">
-					<a href="pdf_exam_result.php?code=<?php echo $_GET["code"]; ?>" class="btn btn-danger btn-sm" target="_blank">PDF</a>
+					<a href="pdf_exam_result.php?code=<?php echo $_GET["code"]; ?>" class="btn info btn-sm" target="_blank">PDF</a>
 				</div>
 			</div>
 		</div>

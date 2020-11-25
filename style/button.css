@@ -49,3 +49,14 @@
     background-color: white;
     color: #da6c06;
 }
+
+.danger {
+    background-color: #dd0b0b;
+    border-color: #dd0b0b;
+    color: white;
+}
+
+.danger:hover {
+    background-color: white;
+    color: #dd0b0b;
+}

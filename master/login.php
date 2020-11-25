@@ -24,62 +24,96 @@ $exam->admin_session_public();
     <link rel="stylesheet" href="../style/style.css" />
 </head>
 <body>
-  <div class="jumbotron text-center" style="margin-bottom:0; padding: 1rem 1rem;">
-      <img src="logo.png" class="img-fluid" width="300" alt="Online Examination System in PHP" />
+<div class="jumbotron text-center" style="margin-bottom:0; padding: 1rem 1rem;background-color:white;">
+        <img src="https://www.bitsathy.ac.in/assets/images/headlogo.svg" class="img-fluid" width="900" alt="Online Examination System in PHP">
+       
   </div>
 
-  <div class="container">
+ 
+<link href="../style/button.css" rel="stylesheet" type="text/css">
+<hr>
+  <div class="container"><br>
+	<h1 style="align-content: center;font-size:50px;font-family:cambria;" align="center">Staff Login</h1><br>
+
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
 
         </div>
-        <div class="col-md-6" style="margin-top:20px;">
+        <div class="col-md-8" style="margin-top:50px;">
           
-          <span id="message">
-          <?php
-          if(isset($_GET['verified']))
-          {
-            echo '
-            <div class="alert alert-success">
-              Your email has been verified, now you can login
-            </div>
-            ';
-          }
-          ?>
-          </span>
-          <div class="card">
-            <div class="card-header">Admin Login</div>
-            <div class="card-body">
-              <form method="post" id="admin_login_form">
-                <div class="form-group">
-                  <label>Enter Email Address</label>
-                  <input type="text" name="admin_email_address" id="admin_email_address" class="form-control" />
-                </div>
-                <div class="form-group">
-                  <label>Enter Password</label>
-                  <input type="password" name="admin_password" id="admin_password" class="form-control" />
-                </div>
-                <div class="form-group">
-                  <input type="hidden" name="page" value="login" />
-                  <input type="hidden" name="action" value="login" />
-                  <input type="submit" name="admin_login" id="admin_login" class="btn btn-info" value="Login" />
-                </div>
-              </form>
-              <div align="center">
-                <a href="register.php">Register</a>
+
+            <span id="message">
+            <?php
+            if(isset($_GET['verified']))
+            {
+              echo '
+              <div class="alert alert-success">
+                Your email has been verified, now you can login
+              </div>
+              ';
+            }
+            ?>   
+            </span>
+            <div class="card border border-success">
+            <div class="card-header"><a style="font-size:180%;">Sign In</a>
+                        <div style="float:right; font-size: 40%; position: relative;" ><a href="../master/forgot_password.php" class="btn info">Forgot password?</a></div></div>
+              <!-- <div class="card-header" style="font-family:comic sans MS;color:blue;font-size:larger;"><center>Student Login</center></div> -->
+              <div class="card-body">
+                <form method="post" id="admin_login_form">
+                  <div class="form-group">
+                    <label style="top:5px;"><b>Email Address : </b></label>
+                    <div style="margin-bottom: 25px;top:5px" class="input-group" >
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" name="admin_email_address" id="admin_email_address"placeholder="Email ID" class="form-control" required>
+                                                                      
+                                    </div>                           
+                      <!-- <input type="text" name="user_email_address" id="user_email_address" class="form-control" /> -->
+                    </div>
+                  <div class="form-group">
+                    <label><b>Enter Password : </b></label>
+                    <div style="margin-bottom: 15px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" name="admin_password" id="admin_password" class="form-control" placeholder="Password" required>
+                                    </div>
+                                    
+                    <!-- <input type="password" name="user_password" id="user_password" class="form-control" /> -->
+                  </div>
+                  <div class="input-group">
+                                      <div class="checkbox">
+                                        <label>
+                                          <input id="remember_me" type="checkbox" name="_remember_me" checked value="1"> Remember me
+                                        </label>
+                                      </div>
+                                    </div>
+                  <div class="form-group" align="center">
+                    <br>
+                   
+                    <input type="hidden" name="page" value="login" />
+                    <input type="hidden" name="action" value="login" />
+                    <input type="submit" name="user_login" id="admin_login" class="btn success" value=" Login " />&nbsp;
+                    <a class="btn blue" href="register.php">Register</a>
+                  </div>
+                </form>
+               
+                
+
+
+
+                
               </div>
             </div>
-          </div>
-            
         </div>
         <div class="col-md-3">
 
         </div>
       </div>
-  </div>
+  </div>  <br><br>
+<style>
 
+  </style>
 </body>
-</html>
+</html> 
+
 
 <script>
 
