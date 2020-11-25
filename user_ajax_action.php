@@ -442,7 +442,7 @@ if(isset($_POST['page']))
 	if($_POST['page'] == 'view_exam')
 	{
 		if($_POST['action'] == 'load_question')
-		{
+		{	$ex_id=$_POST["exam_id"];
 			if($_POST['question_id'] == '')
 			{
 				$exam->query = "
@@ -553,16 +553,13 @@ if(isset($_POST['page']))
 				{
 					$if_next_disable = 'disabled';
 				}
-				$exam_id=$_POST["exam_id"];
+				$exam_id= '4' ;
 				$output .= '
 					<br /><br />
 				  	<div align="center">
 				   		<button type="button" name="previous" class="btn blue previous" id="'.$previous_id.'" '.$if_previous_disable.'>PREVIOUS</button>&nbsp;
-						   <button type="button" name="next" class="btn info next" id="'.$next_id.'" '.$if_next_disable.'>  NEXT  </button>
-							   
-						  <br> <hr> <a href="submit.php?id="'.$exam_id.'">
-						  <button class="btn success" >SUBMIT</button>
-					  </a></br></hr>
+						   <button type="button" name="next" class="btn info next" id="'.$next_id.'" '.$if_next_disable.'>  NEXT  </button>'.' <br> <hr> <a class="btn success" href="submit.php?id='.$ex_id.'">SUBMIT</a>
+						</br></hr>
 				  	</div>
 					  <br /><br />';
 					  

@@ -1,22 +1,21 @@
 <?php
-session_start();
+
+include('../master/Examination.php');
+
 $exam = new Examination;
+
 $exam->user_session_private();
+
 include('../include/db.php');
 require_once '../include/db.php';
 
-$_SESSION['start'] = 1;
+$examid=intval($_GET['id']);
+$id = $_SESSION['user_id'];
+
+$sql= "UPDATE user_exam_enroll_table SET exam_status='Completed',attendance_status='Present' WHERE user_id = $id and exam_id= $examid;";
+$result = mysqli_query($db, $sql);
+
 header("location:enroll_exam.php");
-
-
-if(isset($_REQUEST['del']))
-{
-	$userid=intval($_GET['del']);
-	$sql= "DELETE FROM feedback_table WHERE f_id = '$userid';";
-	$result = mysqli_query($db, $sql);
-
-
-}
 
 
 ?>
