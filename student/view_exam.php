@@ -332,11 +332,11 @@ document.addEventListener("visibilitychange", event => {
     console.log("tab is activate")
   } else {
 	console.log("tab is inactive")
-
+	var exam_id = "<?php echo $exam_id; ?>";
 	// ["online_exam_status"] == 'Completed'
 	window.close();
     //   console.log(camtest);
-	window.location.assign("enroll_exam.php");
+	window.location.assign("submit.php?id="+exam_id);
   }
 })
 

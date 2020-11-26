@@ -62,7 +62,7 @@ include('header.php');
 
 <script>
 
-$(document).ready(function(){
+$(document).ready(function(){		
 	
 	var dataTable = $('#user_data_table').DataTable({
 		"processing" : true,

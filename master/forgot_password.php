@@ -45,11 +45,11 @@ if(isset($_POST['reset']))
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject= $body;
-    $mail->Body =$message="You activation link is:http://localhost/online_examination/student/password_change.php?id=$id";
+    $mail->Body =$message="You activation link is:http://localhost/examination-application/student/password_change.php?id=$id";
     $mail->send();
  //   Message();
     echo '<script>alert("Verification Link is send to your Email")</script>'; 
-    echo "<script>window.location.href='login.php'</script>"; 
+    echo "<script>window.location.href='../student/login.php'</script>"; 
 
   }
   else

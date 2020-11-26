@@ -24,93 +24,93 @@ $row_comp = $row['cnt'];
 <div class="containter">
 	<br />
 
-	<h1 style="align-content: center;font-size:60px;font-family:Cursive;" align="center">Student Dashboard</h1><br>
 
-	<div class="container border border-warning">
-
-		<div class="row ">
-			<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-				<div class="offer offer-danger">
-					<div class="shape">
-						<div class="shape-text">
-							<span class="glyphicon glyphicon glyphicon-eye-open"></span>
-						</div>
-					</div>
-					<div class="offer-content">
-						<h3 class="lead">
-							Feedback : <label class="label label-danger"><?php echo $row_comp ?></label>
-						</h3>
-						<p>
-							Percentage:
-							<br>
-							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
-									<?php echo 10 * $row_comp ?>%
-								</div>
-							</div>
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-				<div class="offer offer-radius offer-primary">
-					<div class="shape">
-						<div class="shape-text">
-							<span class="glyphicon  glyphicon-user"></span>
-						</div>
-					</div>
-					<div class="offer-content">
-						<h3 class="lead">
-							Exam : <label class="label label-primary"> <?php echo $row_comp ?></label>
-						</h3>
-						<p>
-							Ortalama Oranı:
-							<br>
-							<div class="progress">
-								<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
-									<?php echo 10 * $row_comp ?>%
-								</div>
-							</div>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-				<div class="offer offer-info">
-					<div class="shape">
-						<div class="shape-text">
-							<span class="glyphicon  glyphicon-home"></span>
-						</div>
-					</div>
-					<div class="offer-content">
-						<h3 class="lead">
-							İnfo : <label class="label label-info"> <?php echo $row_comp ?></label>
-						</h3>
-						<p>
-							Kullanma Oranı:
-							<br>
-							<div class="progress">
-								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 20 * $row_comp ?>%">
-									<?php echo 20 * $row_comp ?>%
-								</div>
-							</div>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<br>
-</div>
 
 <?php
 if (isset($_SESSION["user_id"])) {
 
 ?>
+	<h1 style="align-content: center;font-size:60px;font-family:Cursive;" align="center">Student Dashboard</h1><br>
 
+<div class="container border border-warning">
+
+	<div class="row ">
+		<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-danger">
+				<div class="shape">
+					<div class="shape-text">
+						<span class="glyphicon glyphicon glyphicon-eye-open"></span>
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+						Feedback : <label class="label label-danger"><?php echo $row_comp ?></label>
+					</h3>
+					<p>
+						Percentage:
+						<br>
+						<div class="progress">
+							<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
+								<?php echo 10 * $row_comp ?>%
+							</div>
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-radius offer-primary">
+				<div class="shape">
+					<div class="shape-text">
+						<span class="glyphicon  glyphicon-user"></span>
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+						Exam : <label class="label label-primary"> <?php echo $row_comp ?></label>
+					</h3>
+					<p>
+						Ortalama Oranı:
+						<br>
+						<div class="progress">
+							<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
+								<?php echo 10 * $row_comp ?>%
+							</div>
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+			<div class="offer offer-info">
+				<div class="shape">
+					<div class="shape-text">
+						<span class="glyphicon  glyphicon-home"></span>
+					</div>
+				</div>
+				<div class="offer-content">
+					<h3 class="lead">
+						İnfo : <label class="label label-info"> <?php echo $row_comp ?></label>
+					</h3>
+					<p>
+						Kullanma Oranı:
+						<br>
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 20 * $row_comp ?>%">
+								<?php echo 20 * $row_comp ?>%
+							</div>
+						</div>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br>
+</div>
 
 	<br><br>
 
@@ -235,12 +235,14 @@ if (isset($_SESSION["user_id"])) {
 		});
 	</script>
 <?php
-} else {
+} else { 		    echo "<script>window.location.href='login.php'</script>"; 
+
+
 ?>
-	<div align="center">
+	<!-- <div align="center">
 		<p><a href="register.php" class="btn btn-warning btn-lg">Register</a></p>
 		<p><a href="login.php" class="btn btn-dark btn-lg">Login</a></p>
-	</div>
+	</div> -->
 <?php
 }
 ?>
