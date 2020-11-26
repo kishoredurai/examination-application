@@ -22,7 +22,7 @@ if(isset($_GET['type'], $_GET['code']))
 
 		$exam->execute_query();
 
-		$exam->redirect('master/login.php?verified=success');
+		$exam->redirect('../master/login.php?verified=success');
 	}
 
 	if($_GET['type'] == 'user')

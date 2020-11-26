@@ -27,7 +27,7 @@ class Examination
 		$this->username = 'root';
 		$this->password = '';
 		$this->database = 'online_examination';
-		$this->home_page = 'http://localhost/online_examination/';
+		$this->home_page = 'http://localhost/examination-application/student/';
 
 		$this->connect = new PDO("mysql:host=$this->host; dbname=$this->database", "$this->username", "$this->password");
 

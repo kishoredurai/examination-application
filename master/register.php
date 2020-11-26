@@ -41,7 +41,7 @@ include('../include/db.php');
       <div class="col-md-8" style="margin-top:20px;">
         <span id="message"></span>
         <div class="card border border-warning">
-          <div class="card-header border border-primary" style="font-size:30px;" align="center">Admin Registration</div>
+          <div class="card-header border border-primary" style="font-size:30px;" align="center">Staff Registration</div>
           <div class="card-body">
             <form method="post" id="admin_register_form">
               <div class="form-group">
@@ -75,15 +75,7 @@ include('../include/db.php');
                 <label><b>Enter Date of Birth :</b></label>
                 <input type="date" name="admin_dob" id="admin_dob" class="form-control" required>
               </div>
-              <div class="form-group">
-                <label><b>Select Year :</b></label>
-                <select name="admin_year" id="admin_year" class="form-control">
-                  <option value="I">I</option>
-                  <option value="II">II</option>
-                  <option value="III">III</option>
-                  <option value="IV">IV</option>
-                </select>
-              </div>
+             
               <div class="form-group">
                 <label><b>Select Course :</b></label>
                 <select name="admin_course" id="admin_course" class="form-control">
