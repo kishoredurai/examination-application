@@ -41,20 +41,34 @@ if(isset($_POST['page']))
 			$admin_verification_code = md5(rand());
 
 			$receiver_email = $_POST['admin_email_address'];
+			$admin_name = $_POST['admin_name'];
+			$admin_gender = $_POST['admin_gender'];
+			$admin_mobile_no = $_POST['admin_mobile_no'];
+			$admin_dob = $_POST['admin_dob'];
+			$admin_year = $_POST['admin_year'];
+			$admin_course = $_POST['admin_course'];
+			$admin_level = $_POST['admin_level'];
 
 			$exam->data = array(
 				':admin_email_address'		=>	$receiver_email,
 				':admin_password'			=>	password_hash($_POST['admin_password'], PASSWORD_DEFAULT),
 				':admin_verfication_code'	=>	$admin_verification_code,
 				':admin_type'				=>	'sub_master', 
-				':admin_created_on'			=>	$current_datetime
+				':admin_created_on'			=>	$current_datetime,
+				':admin_name'				=>	$admin_name,
+				':admin_gender'				=>	$admin_gender,
+				':admin_year'				=>	$admin_year,
+				':admin_course'				=>	$admin_course,
+				':admin_DOB'				=>	$admin_dob,
+				':admin_contact'			=>	$admin_mobile_no,
+				':admin_level'			    =>	$admin_level
 			);
 
 			$exam->query = "
 			INSERT INTO admin_table 
-			(admin_email_address, admin_password, admin_verfication_code, admin_type, admin_created_on) 
+			(admin_name, admin_email_address, admin_password, admin_gender, admin_year, admin_course, admin_DOB, admin_contact, admin_level, admin_verfication_code, admin_type, admin_created_on) 
 			VALUES 
-			(:admin_email_address, :admin_password, :admin_verfication_code, :admin_type, :admin_created_on)
+			(:admin_name, :admin_email_address, :admin_password, :admin_gender, :admin_year, :admin_course, :admin_DOB, :admin_contact, :admin_level, :admin_verfication_code, :admin_type, :admin_created_on)
 			";
 
 			$exam->execute_query();

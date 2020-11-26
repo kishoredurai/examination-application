@@ -46,7 +46,7 @@ include('../include/db.php');
             <form method="post" id="admin_register_form">
               <div class="form-group">
                 <label><b>Enter Name :</b></label>
-                <input type="text" name="user_name" id="admin_name" class="form-control" />
+                <input type="text" name="admin_name" id="admin_name" class="form-control" />
               </div>
               <div class="form-group">
                 <label><b>Enter Email Address :</b></label>
@@ -69,15 +69,15 @@ include('../include/db.php');
               </div>
               <div class="form-group">
                 <label><b>Enter Mobile Number :</b></label>
-                <input type="text" name="admin_mobile_no" id="user_mobile_no" class="form-control" />
+                <input type="text" name="admin_mobile_no" id="admin_mobile_no" class="form-control" required>
               </div>
               <div class="form-group">
                 <label><b>Enter Date of Birth :</b></label>
-                <input type="date" name="admin_dob" id="user_mobile_no" class="form-control" />
+                <input type="date" name="admin_dob" id="admin_dob" class="form-control" required>
               </div>
               <div class="form-group">
                 <label><b>Select Year :</b></label>
-                <select name="admin_year" id="user_year" class="form-control">
+                <select name="admin_year" id="admin_year" class="form-control">
                   <option value="I">I</option>
                   <option value="II">II</option>
                   <option value="III">III</option>
@@ -86,7 +86,7 @@ include('../include/db.php');
               </div>
               <div class="form-group">
                 <label><b>Select Course :</b></label>
-                <select name="admin_course" id="user_year" class="form-control">
+                <select name="admin_course" id="admin_course" class="form-control">
                   <?php
                   require_once '../include/db.php';
 
@@ -102,7 +102,7 @@ include('../include/db.php');
               </div>
               <div class="form-group">
                 <label><b>Teacher Level :</b></label>
-                <select name="admin_level" id="user_year" class="form-control">
+                <select name="admin_level" id="admin_level" class="form-control">
                   <option value="Assistant Professor Level II">Assistant Professor Level II</option>
                   <option value="Associate Professo">Associate Professor</option>
                   <option value="Professor and Head">Professor and Head</option>
@@ -166,6 +166,8 @@ include('../include/db.php');
       $('#admin_email_address').attr('data-parsley-type', 'email');
 
       $('#admin_password').attr('required', 'required');
+
+      $('#admin_name').attr('required', 'required');
 
       $('#confirm_admin_password').attr('required', 'required');
 
