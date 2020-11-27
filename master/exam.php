@@ -4,6 +4,7 @@
 
 include('header.php');
 
+include('../include/db.php');	
 
 
 ?>
@@ -63,7 +64,44 @@ include('header.php');
 								
 	                		</div>
             			</div>
-          			</div>
+					  </div>
+					  <div class="form-group">
+            			<div class="row">
+              				<label class="col-md-4 text-right">Exam Year<span class="text-danger">*</span></label>
+	              			<div class="col-md-8">
+	                			<select name="exam_year" id="online_exam_duration" class="form-control">
+									<option value="">Select</option>
+									<option value="I">I</option>
+									<option value="II">II</option>
+	                				<option value="III">III</option>
+	                				<option value="IV">IV</option>
+	                				
+	                			</select>
+	                		</div>
+						</div>
+						</div>
+					
+					  <div class="form-group">
+            			<div class="row">
+              				<label class="col-md-4 text-right">Course : <span class="text-danger">*</span></label>
+	              			<div class="col-md-8">
+	                			<select name="exam_course" id="online_exam_duration" class="form-control">
+								<?php
+							require_once '../include/db.php';
+									
+							$sql= "SELECT * from course_table";
+							$result = mysqli_query($db, $sql);
+
+							if (mysqli_num_rows($result)> 0) {
+							while($row = mysqli_fetch_assoc($result)) 
+							{ ?>
+
+								<option value="<?php echo $row['course_name'];?>"><?php echo $row['course_name'];?></option>
+	                			<?php } } ?>	
+	                			</select>
+	                		</div>
+            			</div>
+							</div>
           			<div class="form-group">
             			<div class="row">
               				<label class="col-md-4 text-right">Exam Date & Time <span class="text-danger">*</span></label>

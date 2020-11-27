@@ -164,7 +164,7 @@ if($exam_status == 'Started')
 
 ?>
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-8" onmousedown="return false" onselectstart="return false">
 		<div class="card border border-success">
 			<div class="card-header">Online Exam </div>
 			<div class="card-body">

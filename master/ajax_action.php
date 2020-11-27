@@ -313,6 +313,8 @@ if(isset($_POST['page']))
 				':online_exam_datetime'	=>	$_POST['online_exam_datetime'] . ':00',
 				':online_exam_duration'	=>	$_POST['online_exam_duration'],
 				':total_question'		=>	$_POST['total_question'],
+				':user_year'			=>	$_POST['exam_year'],
+				':user_course'			=>	$_POST['exam_course'],
 				':marks_per_right_answer'=>	$_POST['marks_per_right_answer'],
 				':marks_per_wrong_answer'=>	$_POST['marks_per_wrong_answer'],
 				':online_exam_created_on'=>	$current_datetime,
@@ -322,8 +324,8 @@ if(isset($_POST['page']))
 
 			$exam->query = "
 			INSERT INTO online_exam_table 
-			(admin_id, online_exam_title, online_exam_datetime, online_exam_duration, total_question, marks_per_right_answer, marks_per_wrong_answer, online_exam_created_on, online_exam_status, online_exam_code) 
-			VALUES (:admin_id, :online_exam_title, :online_exam_datetime, :online_exam_duration, :total_question, :marks_per_right_answer, :marks_per_wrong_answer, :online_exam_created_on, :online_exam_status, :online_exam_code)
+			(admin_id, user_year, user_course, online_exam_title, online_exam_datetime, online_exam_duration, total_question, marks_per_right_answer, marks_per_wrong_answer, online_exam_created_on, online_exam_status, online_exam_code) 
+			VALUES (:admin_id, :user_year, :user_course, :online_exam_title, :online_exam_datetime, :online_exam_duration, :total_question, :marks_per_right_answer, :marks_per_wrong_answer, :online_exam_created_on, :online_exam_status, :online_exam_code)
 			";
 
 			$exam->execute_query();

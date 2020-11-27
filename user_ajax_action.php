@@ -297,6 +297,9 @@ if(isset($_POST['page']))
 
 			$exam->execute_query();
 
+			
+
+
 			$exam->query = "
 			SELECT question_id FROM question_table 
 			WHERE online_exam_id = '".$_POST['exam_id']."'
