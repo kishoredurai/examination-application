@@ -1,5 +1,7 @@
 <?php
 
+include('../include/db.php');
+require_once'../include/db.php';
 //ajax_action.php // source code modified by jacksonsilass@gmail.com +255 763169695 from weblessons
 
 include('Examination.php');
@@ -44,7 +46,6 @@ if(isset($_POST['page']))
 			$admin_name = $_POST['admin_name'];
 			$admin_gender = $_POST['admin_gender'];
 			$admin_mobile_no = $_POST['admin_mobile_no'];
-			$admin_dob = $_POST['admin_dob'];
 			$admin_course = $_POST['admin_course'];
 			$admin_level = $_POST['admin_level'];
 
@@ -57,16 +58,15 @@ if(isset($_POST['page']))
 				':admin_name'				=>	$admin_name,
 				':admin_gender'				=>	$admin_gender,
 				':admin_course'				=>	$admin_course,
-				':admin_DOB'				=>	$admin_dob,
 				':admin_contact'			=>	$admin_mobile_no,
 				':admin_level'			    =>	$admin_level
 			);
 
 			$exam->query = "
 			INSERT INTO admin_table 
-			(admin_name, admin_email_address, admin_password, admin_gender,  admin_course, admin_DOB, admin_contact, admin_level, admin_verfication_code, admin_type, admin_created_on) 
+			(admin_name, admin_email_address, admin_password, admin_gender,  admin_course, admin_contact, admin_level, admin_verfication_code, admin_type, admin_created_on) 
 			VALUES 
-			(:admin_name, :admin_email_address, :admin_password, :admin_gender,  :admin_course, :admin_DOB, :admin_contact, :admin_level, :admin_verfication_code, :admin_type, :admin_created_on)
+			(:admin_name, :admin_email_address, :admin_password, :admin_gender,  :admin_course, :admin_contact, :admin_level, :admin_verfication_code, :admin_type, :admin_created_on)
 			";
 
 			$exam->execute_query();
@@ -216,6 +216,10 @@ if(isset($_POST['page']))
 
 				$sub_array[] = $row['online_exam_datetime'];
 
+				$sub_array[] = $row['user_year'];
+
+				$sub_array[] = $row['user_course'];
+
 				$sub_array[] = $row['online_exam_duration'] . ' Minute';
 
 				$sub_array[] = $row['total_question'] . ' Question';
@@ -264,13 +268,13 @@ if(isset($_POST['page']))
 				}
 				else
 				{
-					$result_button = '<a href="exam_result.php?code='.$row["online_exam_code"].'" class="btn btn-dark btn-sm">Result</a>';
+					$result_button = '<a href="exam_result.php?code='.$row["online_exam_code"].'" class="btn success btn-sm">Result</a>';
 				}
 
 				if($exam->Is_allowed_add_question($row['online_exam_id']))
 				{
 					$question_button = '
-					<button type="button" name="add_question" class="btn btn-info btn-sm add_question" id="'.$row['online_exam_id'].'">Add Question</button>
+					<button type="button" name="add_question" class="btn btn-info btn-sm add_question" id="'.$row['online_exam_id'].'">Add Question</button>&nbsp;<a href="question.php?code='.$row['online_exam_code'].'" class="btn btn-warning btn-sm">View Question</a>
 					';
 				}
 				else
@@ -285,7 +289,7 @@ if(isset($_POST['page']))
 
 				$sub_array[] = $question_button;
 
-				$sub_array[] = '<a href="exam_enroll.php?code='.$row['online_exam_code'].'" class="btn btn-secondary btn-sm">Enroll</a>';
+				$sub_array[] = '<a href="exam_enroll.php?code='.$row['online_exam_code'].'" class="btn warning btn-sm">Enrolled</a>';
 
 				$sub_array[] = $result_button;
 
@@ -307,6 +311,10 @@ if(isset($_POST['page']))
 
 		if($_POST['action'] == 'Add')
 		{
+			$exam_code=md5(rand());
+			$user_year=$_POST['exam_year'];
+			$user_course=$_POST['exam_course'];
+
 			$exam->data = array(
 				':admin_id'				=>	$_SESSION['admin_id'],
 				':online_exam_title'	=>	$exam->clean_data($_POST['online_exam_title']),
@@ -319,7 +327,7 @@ if(isset($_POST['page']))
 				':marks_per_wrong_answer'=>	$_POST['marks_per_wrong_answer'],
 				':online_exam_created_on'=>	$current_datetime,
 				':online_exam_status'	=>	'Pending',
-				':online_exam_code'		=>	md5(rand())
+				':online_exam_code'		=>	$exam_code
 			);
 
 			$exam->query = "
@@ -327,11 +335,23 @@ if(isset($_POST['page']))
 			(admin_id, user_year, user_course, online_exam_title, online_exam_datetime, online_exam_duration, total_question, marks_per_right_answer, marks_per_wrong_answer, online_exam_created_on, online_exam_status, online_exam_code) 
 			VALUES (:admin_id, :user_year, :user_course, :online_exam_title, :online_exam_datetime, :online_exam_duration, :total_question, :marks_per_right_answer, :marks_per_wrong_answer, :online_exam_created_on, :online_exam_status, :online_exam_code)
 			";
-
+			$examid="";
 			$exam->execute_query();
+			
+			$results = mysqli_query($db,"SELECT * FROM online_exam_table where online_exam_code ='$exam_code';");
+ 
+			if(mysqli_num_rows($results) == 1)
+			{
+				$rows=mysqli_fetch_array($results);
+				$examid=$rows["online_exam_id"];
+			}
+
+			$results = mysqli_query($db,"INSERT INTO user_exam_enroll_table (user_id, exam_id) SELECT user_id, '$examid' FROM user_table WHERE user_year= '$user_year' and user_course = '$user_course';");
+
+			
 
 			$output = array(
-				'success'	=>	'New Exam Details Added'
+				'success'	=>	'New Exam Added Successfully'
 			);
 
 			echo json_encode($output);
@@ -352,7 +372,9 @@ if(isset($_POST['page']))
 
 				$output['online_exam_datetime'] = $row['online_exam_datetime'];
 
-				$output['online_exam_duration'] = $row['online_exam_duration'];
+				$output['online_exam_year'] = $row['user_year'];
+
+				$output['online_exam_course'] = $row['user_course'];
 
 				$output['total_question'] = $row['total_question'];
 
@@ -370,6 +392,8 @@ if(isset($_POST['page']))
 				':online_exam_title'	=>	$_POST['online_exam_title'],
 				':online_exam_datetime'	=>	$_POST['online_exam_datetime'] . ':00',
 				':online_exam_duration'	=>	$_POST['online_exam_duration'],
+				':exam_year'			=>	$_POST['exam_year'],
+				':exam_course'			=>	$_POST['exam_course'],
 				':total_question'		=>	$_POST['total_question'],
 				':marks_per_right_answer'=>	$_POST['marks_per_right_answer'],
 				':marks_per_wrong_answer'=>	$_POST['marks_per_wrong_answer'],
@@ -378,7 +402,7 @@ if(isset($_POST['page']))
 
 			$exam->query = "
 			UPDATE online_exam_table 
-			SET online_exam_title = :online_exam_title, online_exam_datetime = :online_exam_datetime, online_exam_duration = :online_exam_duration, total_question = :total_question, marks_per_right_answer = :marks_per_right_answer, marks_per_wrong_answer = :marks_per_wrong_answer  
+			SET online_exam_title = :online_exam_title, online_exam_datetime = :online_exam_datetime, user_year = :exam_year, user_course = :exam_course, online_exam_duration = :online_exam_duration, total_question = :total_question, marks_per_right_answer = :marks_per_right_answer, marks_per_wrong_answer = :marks_per_wrong_answer  
 			WHERE online_exam_id = :online_exam_id
 			";
 
@@ -400,8 +424,12 @@ if(isset($_POST['page']))
 			DELETE FROM online_exam_table 
 			WHERE online_exam_id = :online_exam_id
 			";
+			$e_id=$_POST['exam_id'];
 
 			$exam->execute_query();
+
+			$results = mysqli_query($db,"DELETE FROM user_exam_enroll_table	WHERE exam_id = '$e_id';");
+
 
 			$output = array(
 				'success'	=>	'Exam Details has been removed'
@@ -897,24 +925,46 @@ if(isset($_POST['page']))
 				$sub_array = array();
 				$sub_array[] = "<img src='../upload/".$row["user_image"]."' class='img-thumbnail' width='75' />";
 				$sub_array[] = $row["user_name"];
+				$sub_array[] = $row["user_rollno"];
+				$sub_array[] = $row["user_email_address"];
 				$sub_array[] = $row["user_gender"];
-				$sub_array[] = $row["user_mobile_no"];
-				$is_email_verified = '';
+								
+				$attendace = '';
 
-				if($row['user_email_verified'] == 'yes')
+				if($row["attendance_status"] == 'Present')
 				{
-					$is_email_verified = '<label class="badge badge-success">Yes</label>';
+					$attendace = '<label class="badge badge-success">Present</label>';
 				}
 				else
 				{
-					$is_email_verified = '<label class="badge badge-danger">No</label>';
+					$attendace = '<label class="badge badge-danger">Absent</label>';
 				}
-				$sub_array[] = $is_email_verified;
+				$sub_array[] = $attendace;
+
+				$sub_array[] = $row["exam_intime"];
+				$sub_array[] = $row["exam_outtime"];
+
+				$examstatus = '';
+
+				if($row["exam_status"] == 'Completed')
+				{
+					$examstatus = '<label class="badge badge-success">Exam Completed</label>';
+				}
+				else
+				{
+					$examstatus = '<label class="badge badge-danger">Exam Not Completed</label>';
+				}
+				$sub_array[] = $examstatus;
+
+
+				$sub_array[] = $row["remark"];
+
 				$result = '';
+
 
 				if($exam->Get_exam_status($exam_id) == 'Completed')
 				{
-					$result = '<a href="user_exam_result.php?code='.$_POST['code'].'&id='.$row['user_id'].'" class="btn btn-info btn-sm" target="_blank">Result</a>';
+					$result = '<a href="user_exam_result.php?code='.$_POST['code'].'&id='.$row['user_id'].'" class="btn blue btn-sm" target="_blank">Result</a>';
 				}
 				$sub_array[] = $result;
 

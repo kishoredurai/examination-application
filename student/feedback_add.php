@@ -25,7 +25,12 @@ if (isset($_POST['feed'])) {
 move_uploaded_file($profiletmpname, '../feedback_image/'.$profilename);
 
         $result = mysqli_query($db, "INSERT INTO `feedback_table`(`user_id`, `feed_type`, `feed`,`feed_image` ) values ('$id','$type','$feedback','$profilename');");
-        echo "<script type='text/javascript'>alert(Feedback Updated);</script>";
+
+
+        echo "<script type='text/javascript'>window.alert('Feedback Updated');</script>";
+
+        echo "<script>window.location.href='feedback.php'</script>"; 
+
     } 
 ?>
 <br><Br><br>
@@ -53,7 +58,8 @@ move_uploaded_file($profiletmpname, '../feedback_image/'.$profilename);
                             <label for="sel1"><b>Feedback TO :</b></label>
                             <select class="form-control" name="type" id="sel1">
                                 <option value="Administrator">Administrator</option>
-                                <option value="Staff">Staff</option>
+                                <option value="COE">Controller of Examination</option>
+                                <option value="Faculty">Faculty</option>
                             </select>
                         </div>
                         <div class="form-group">

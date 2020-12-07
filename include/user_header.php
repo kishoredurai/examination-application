@@ -3,8 +3,9 @@
 <html lang="en">
 
 <head>
-  <title>Online Examination System in PHP</title>
-  <meta charset="utf-8">
+<link rel="icon" href="../include/bit1.png " type="image/icon type">
+  	<title>Online Examination System - datastack</title>
+      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../style1/bootstrap.min.css">
   <link rel="stylesheet" href="../style1/dataTables.bootstrap4.min.css">
@@ -47,8 +48,9 @@
             <div class="topnav"><a style="color: black;" class="nav-link" href="../student/feedback.php">Feedback</a></div>
           </li>
           <li class="nav-item">
-            <div class="topnav"> <a style="color: black;" class="nav-link" href="../student/event_calender.php">Upcoming Events</a></div>
+            <div class="topnav"><a style="color: black;" class="nav-link" href="../student/event_calender.php">Upcoming Exam</a></div>
           </li>
+         
         </ul>
 
         <?php

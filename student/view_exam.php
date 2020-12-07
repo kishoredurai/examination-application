@@ -1,5 +1,4 @@
 <head>
-    
     <script src='https://meet.jit.si/external_api.js'></script>
     <div id="jitsi-container" style="padding-right:20px" align="right"></div>
     
@@ -112,12 +111,69 @@ $remaining_minutes = '';
 
 if(isset($_GET['code']))
 {
+	
+	
+
 	$exam_id = $exam->Get_exam_id($_GET["code"]);
+
+	$id=$_SESSION['user_id'];
+	$exam->query = "SELECT * FROM user_exam_enroll_table WHERE user_id = '$id' and exam_id = '$exam_id;'";
+	$results = $exam->query_result();
+
+	foreach($results as $rows)
+	{
+		$remarks = $rows['exam_status'];
+	}
+	if($remarks=='Completed')
+	{
+		echo "<script>window.location.href='index.php'</script>";  
+	}
+	
+	$id=$_SESSION['user_id'];
+
+			$exam->query = "SELECT * FROM user_exam_question_answer WHERE user_id = '$id' and exam_id = '$exam_id'";
+
+			$total_row = $exam->total_row();
+
+			if($total_row > 0)
+			{
+	
+			
+			}
+			else
+			{
+				$exam->query = "
+			SELECT question_id FROM question_table 
+			WHERE online_exam_id = '".$exam_id."'
+			";
+			$result = $exam->query_result();
+			foreach($result as $row)
+			{
+				$exam->data = array(
+					':user_id'				=>	$_SESSION['user_id'],
+					':exam_id'				=>	$exam_id,
+					':question_id'			=>	$row['question_id'],
+					':user_answer_option'	=>	'0',
+					':marks'				=>	'0'	
+				);
+
+				$exam->query = "
+				INSERT INTO user_exam_question_answer 
+				(user_id, exam_id, question_id, user_answer_option, marks) 
+				VALUES (:user_id, :exam_id, :question_id, :user_answer_option, :marks)
+				";
+				$exam->execute_query();
+			}
+		}
+
+	echo "<script type='text/javascript'>window.alert('Reminder ! start Recording');</script>";
+
 	$exam->query = "
 	SELECT online_exam_status, online_exam_datetime, online_exam_duration FROM online_exam_table 
 	WHERE online_exam_id = '$exam_id'
 	";
 
+	
 	$result = $exam->query_result();
 
 	foreach($result as $row)
@@ -148,21 +204,16 @@ if($exam_status == 'Started')
 	$exam->data = array(
 		':user_id'		=>	$_SESSION['user_id'],
 		':exam_id'		=>	$exam_id,
-		':intime'		=>	$current_datetime,
 		':attendance_status'	=>	'Present'
 		
 	);
 
-	$exam->query = "
-	UPDATE user_exam_enroll_table 
-	SET attendance_status = :attendance_status,intime=:intime 
-	WHERE user_id = :user_id 
-	AND exam_id = :exam_id
-	";
+	$exam->query = "UPDATE user_exam_enroll_table SET attendance_status = :attendance_status,exam_status='Completed',exam_intime=CURRENT_TIMESTAMP() WHERE user_id = :user_id AND exam_id = :exam_id";
 
 	$exam->execute_query();
 
 ?>
+
 <div class="row">
 	<div class="col-md-8" onmousedown="return false" onselectstart="return false">
 		<div class="card border border-success">
@@ -336,7 +387,7 @@ document.addEventListener("visibilitychange", event => {
 	// ["online_exam_status"] == 'Completed'
 	window.close();
     //   console.log(camtest);
-	window.location.assign("submit.php?id="+exam_id);
+	window.location.assign("submit.php?del="+exam_id);
   }
 })
 
@@ -415,10 +466,15 @@ $(document).ready(function(){
 
 	setInterval(function(){
 		var remaining_second = $("#exam_timer").TimeCircles().getTime();
-		if(remaining_second < 1)
-		{
-			window.location = 'enroll_exam.php';
+		if(remaining_second < 1 )
+		{		
+		window.location = 'index.php';
 		}
+		if(remaining_second < 30 && remaining_second > 28)
+		{
+			window.alert('please stop recording');
+		}
+		
 	}, 1000);
 
 	$(document).on('click', '.answer_option', function(){

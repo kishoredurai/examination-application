@@ -1,6 +1,5 @@
 <?php
 
-//index.php // source code modified by jacksonsilass@gmail.com +255 763169695 from weblessons
 
 include('../master/Examination.php');
 
@@ -23,92 +22,27 @@ $row_comp = $row['cnt'];
 ?>
 <div class="containter">
 	<br />
-
+	<!-- <meta http-equiv="refresh" content="10"> -->
 
 
 <?php
 if (isset($_SESSION["user_id"])) {
 
+	
+	if (isset($_SESSION['user_id'])) {
+
+
+		$exam->query = "
+		  SELECT * FROM user_table 
+		  WHERE user_id = '" . $_SESSION['user_id'] . "'
+		  ";
+  
+		$result = $exam->query_result();
+		foreach ($result as $row)
+	  
 ?>
-	<h1 style="align-content: center;font-size:60px;font-family:Cursive;" align="center">Student Dashboard</h1><br>
-
-<div class="container border border-warning">
-
-	<div class="row ">
-		<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			<div class="offer offer-danger">
-				<div class="shape">
-					<div class="shape-text">
-						<span class="glyphicon glyphicon glyphicon-eye-open"></span>
-					</div>
-				</div>
-				<div class="offer-content">
-					<h3 class="lead">
-						Feedback : <label class="label label-danger"><?php echo $row_comp ?></label>
-					</h3>
-					<p>
-						Percentage:
-						<br>
-						<div class="progress">
-							<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
-								<?php echo 10 * $row_comp ?>%
-							</div>
-						</div>
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			<div class="offer offer-radius offer-primary">
-				<div class="shape">
-					<div class="shape-text">
-						<span class="glyphicon  glyphicon-user"></span>
-					</div>
-				</div>
-				<div class="offer-content">
-					<h3 class="lead">
-						Exam : <label class="label label-primary"> <?php echo $row_comp ?></label>
-					</h3>
-					<p>
-						Ortalama Oranı:
-						<br>
-						<div class="progress">
-							<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 10 * $row_comp ?>%">
-								<?php echo 10 * $row_comp ?>%
-							</div>
-						</div>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-			<div class="offer offer-info">
-				<div class="shape">
-					<div class="shape-text">
-						<span class="glyphicon  glyphicon-home"></span>
-					</div>
-				</div>
-				<div class="offer-content">
-					<h3 class="lead">
-						İnfo : <label class="label label-info"> <?php echo $row_comp ?></label>
-					</h3>
-					<p>
-						Kullanma Oranı:
-						<br>
-						<div class="progress">
-							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo 20 * $row_comp ?>%">
-								<?php echo 20 * $row_comp ?>%
-							</div>
-						</div>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
+	<h1 style="align-content: center;font-size:60px;font-family:Cursive;" align="center"><?php echo $row["user_name"]; ?> Dashboard</h1><br>
+	<? php } ?>
 <br>
 </div>
 
@@ -123,7 +57,7 @@ if (isset($_SESSION["user_id"])) {
 			<div class="col-sm-12">
 				<div class="card border border-success">
 					<div class="card-header" style="font-family:monospace;font-size:20px;">
-						<center>Enroll Exam</center>
+						<center>Register for Exam</center>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -158,7 +92,7 @@ if (isset($_SESSION["user_id"])) {
 
 
 
-
+	<?php }?>
 
 
 
@@ -227,6 +161,7 @@ if (isset($_SESSION["user_id"])) {
 						$('#enroll_button').attr('disabled', false);
 						$('#enroll_button').removeClass('btn-warning');
 						$('#enroll_button').addClass('btn-success');
+						$('#enroll_button').attr('disabled', 'disabled');
 						$('#enroll_button').text('Enroll success');
 						window.location.href='enroll_exam.php';
 					}
@@ -256,151 +191,6 @@ if (isset($_SESSION["user_id"])) {
 </div>
 </div>
 </body>
-
-<style>
-	.shape {
-		border-style: solid;
-		border-width: 0 70px 40px 0;
-		float: right;
-		height: 0px;
-		width: 0px;
-		-ms-transform: rotate(360deg);
-		/* IE 9 */
-		-o-transform: rotate(360deg);
-		/* Opera 10.5 */
-		-webkit-transform: rotate(360deg);
-		/* Safari and Chrome */
-		transform: rotate(360deg);
-	}
-
-	.offer {
-		background: #fff;
-		border: 1px solid #ddd;
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-		margin: 15px 0;
-		overflow: hidden;
-	}
-
-	.offer:hover {
-		-webkit-transform: scale(1.1);
-		-moz-transform: scale(1.1);
-		-ms-transform: scale(1.1);
-		-o-transform: scale(1.1);
-		transform: rotate scale(1.1);
-		-webkit-transition: all 0.4s ease-in-out;
-		-moz-transition: all 0.4s ease-in-out;
-		-o-transition: all 0.4s ease-in-out;
-		transition: all 0.4s ease-in-out;
-	}
-
-	.shape {
-		border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
-	}
-
-	.offer-radius {
-		border-radius: 7px;
-	}
-
-	.offer-danger {
-		border-color: #d9534f;
-	}
-
-	.offer-danger .shape {
-		border-color: transparent #d9534f transparent transparent;
-	}
-
-	.offer-success {
-		border-color: #5cb85c;
-	}
-
-	.offer-success .shape {
-		border-color: transparent #5cb85c transparent transparent;
-	}
-
-	.offer-default {
-		border-color: #999999;
-	}
-
-	.offer-default .shape {
-		border-color: transparent #999999 transparent transparent;
-	}
-
-	.offer-primary {
-		border-color: #428bca;
-	}
-
-	.offer-primary .shape {
-		border-color: transparent #428bca transparent transparent;
-	}
-
-	.offer-info {
-		border-color: #5bc0de;
-	}
-
-	.offer-info .shape {
-		border-color: transparent #5bc0de transparent transparent;
-	}
-
-	.offer-warning {
-		border-color: #f0ad4e;
-	}
-
-	.offer-warning .shape {
-		border-color: transparent #f0ad4e transparent transparent;
-	}
-
-	.shape-text {
-		color: #fff;
-		font-size: 12px;
-		font-weight: bold;
-		position: relative;
-		right: -40px;
-		top: 2px;
-		white-space: nowrap;
-		-ms-transform: rotate(30deg);
-		/* IE 9 */
-		-o-transform: rotate(360deg);
-		/* Opera 10.5 */
-		-webkit-transform: rotate(30deg);
-		/* Safari and Chrome */
-		transform: rotate(30deg);
-	}
-
-	.offer-content {
-		padding: 0 20px 10px;
-	}
-
-	@media (min-width: 487px) {
-		.container {
-			max-width: 750px;
-		}
-
-		.col-sm-6 {
-			width: 50%;
-		}
-	}
-
-	@media (min-width: 900px) {
-		.container {
-			max-width: 970px;
-		}
-
-		.col-md-4 {
-			width: 33.33333333333333%;
-		}
-	}
-
-	@media (min-width: 1200px) {
-		.container {
-			max-width: 1170px;
-		}
-
-		.col-lg-3 {
-			width: 25%;
-		}
-	}
-</style>
-
 
 
 

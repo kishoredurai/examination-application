@@ -16,7 +16,7 @@ include('../include/db.php');
 				<h3 class="panel-title">Online Exam List</h3>
 			</div>
 			<div class="col-md-3" align="right">
-				<button type="button" id="add_button" class="btn btn-info btn-sm">Add</button>
+				<button type="button" id="add_button" class="btn info btn-sm">Add</button>
 			</div>
 		</div>
 	</div>
@@ -28,13 +28,15 @@ include('../include/db.php');
 					<tr>
 						<th>Exam Title</th>
 						<th>Date & Time</th>
+						<th>Student Year</th>
+						<th>Student Course</th>
 						<th>Duration</th>
 						<th>Total Question</th>
 						<th>Right Answer Mark</th>
 						<th>Wrong Answer Mark</th>
 						<th>Status</th>
-						<th>Enroll</th>
 						<th>Question</th>
+						<th>Enrolled student</th>
 						<th>Result</th>
 						<th>Action</th>
 					</tr>
@@ -69,7 +71,7 @@ include('../include/db.php');
             			<div class="row">
               				<label class="col-md-4 text-right">Exam Year<span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
-	                			<select name="exam_year" id="online_exam_duration" class="form-control">
+	                			<select name="exam_year" id="online_exam_year" class="form-control">
 									<option value="">Select</option>
 									<option value="I">I</option>
 									<option value="II">II</option>
@@ -85,7 +87,7 @@ include('../include/db.php');
             			<div class="row">
               				<label class="col-md-4 text-right">Course : <span class="text-danger">*</span></label>
 	              			<div class="col-md-8">
-	                			<select name="exam_course" id="online_exam_duration" class="form-control">
+	                			<select name="exam_course" id="online_exam_course" class="form-control">
 								<?php
 							require_once '../include/db.php';
 									
@@ -167,10 +169,7 @@ include('../include/db.php');
 	                			<select name="marks_per_wrong_answer" id="marks_per_wrong_answer" class="form-control">
 									<option value="">Select</option>
 									<option value="0">0 Mark</option>
-	                				<option value="1">-1 Mark</option>
-	                				<option value="1.25">-1.25 Mark</option>
-	                				<option value="1.50">-1.50 Mark</option>
-	                				<option value="2">-2 Mark</option>
+	                				
 	                			</select>
 	                		</div>
             			</div>
@@ -430,6 +429,10 @@ $(document).ready(function(){
 				$('#online_exam_title').val(data.online_exam_title);
 
 				$('#online_exam_datetime').val(data.online_exam_datetime);
+
+				$('#online_exam_year').val(data.online_exam_year);
+
+				$('#online_exam_course').val(data.online_exam_course);
 
 				$('#online_exam_duration').val(data.online_exam_duration);
 

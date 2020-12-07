@@ -14,7 +14,7 @@ $exam->Change_exam_status($_SESSION['user_id']);
 include('../include/user_header.php');
 
 ?>
-
+ <meta http-equiv="refresh" content="10">
 <br />
 <h1 style="align-content: center;font-size:50px;font-family:cursive;" align="center">Enrolled Exam</h1><br>
 

@@ -88381,7 +88381,7 @@ function setUserMediaVariable(){
  * @returns {*}
  */
 src_webgazer.begin = function(onFail) {
-  if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.chrome){
+  if (window.location.protocol !== 'https:' && window.location.hostname !== '192.168.225.134' && window.chrome){
     alert("WebGazer works only over https. If you are doing local development you need to run a local server.");
   }
 
